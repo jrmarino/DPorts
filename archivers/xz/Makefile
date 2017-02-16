@@ -22,7 +22,9 @@ GNU_CONFIGURE=	yes
 
 # As we want to use xz for extraction of port distfiles,
 # it cannot depend on gettext.
-CONFIGURE_ARGS=	--disable-nls
+CONFIGURE_ARGS=	--disable-nls \
+		--enable-symbol-versions \
+		--enable-shared=no
 
 # pick up assembly language optimizations
 #CONFIGURE_TARGET=	${ARCH:S/amd64/x86_64/}-portbld-freebsd${OSREL}

@@ -37,9 +37,6 @@ include/lzma/stream_flags.h
 include/lzma/version.h
 include/lzma/vli.h
 lib/liblzma.a
-lib/liblzma.so
-lib/liblzma.so.5
-lib/liblzma.so.5.2.3
 libdata/pkgconfig/liblzma.pc
 man/man1/lzcat.1.gz
 man/man1/lzcmp.1.gz
