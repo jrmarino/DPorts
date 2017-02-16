@@ -9,11 +9,12 @@ MASTER_SITES=	GNU
 MAINTAINER=	johans@FreeBSD.org
 COMMENT=	The GNU diff utilities
 
-LIB_DEPENDS=	libsigsegv.so:devel/libsigsegv
+#LIB_DEPENDS=	libsigsegv.so:devel/libsigsegv
+BUILD_DEPENDS=	${LOCALBASE}/lib/libsigsegv.a:devel/libsigsegv
 
 USES=		charsetfix tar:xz
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--program-prefix=g
+#CONFIGURE_ARGS=	--program-prefix=g
 
 OPTIONS_DEFINE=	NLS
 OPTIONS_SUB=	yes

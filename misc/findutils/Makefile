@@ -19,7 +19,8 @@ SIG_FILES=	${DISTNAME}${EXTRACT_SUFX}.sig
 GNU_CONFIGURE=	yes
 CPPFLAGS+=	-I${LOCALBASE}/include
 LDFLAGS+=	-L${LOCALBASE}/lib
-CONFIGURE_ARGS+=	--program-prefix=g --localstatedir=${LOCALSTATEDIR}
+#CONFIGURE_ARGS+=	--program-prefix=g --localstatedir=${LOCALSTATEDIR}
+CONFIGURE_ARGS+=	--localstatedir=${LOCALSTATEDIR}
 MAKE_ARGS=	INSTALL_SCRIPT="${INSTALL_SCRIPT}"
 INFO=		find find-maint
 

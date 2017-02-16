@@ -11,16 +11,16 @@ MAINTAINER=	gaod@hychen.org
 COMMENT=	Handling page faults in user mode
 
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	AWK="${AWK}" --enable-shared
+CONFIGURE_ARGS=	AWK="${AWK}" #--enable-shared
 INSTALL_TARGET=	install-strip
 USES=		libtool
 USE_LDCONFIG=	yes
 
 PLIST_FILES=	include/sigsegv.h \
 		lib/libsigsegv.a \
-		lib/libsigsegv.so \
-		lib/libsigsegv.so.2 \
-		lib/libsigsegv.so.2.0.3
+#		lib/libsigsegv.so \
+#		lib/libsigsegv.so.2 \
+#		lib/libsigsegv.so.2.0.3
 
 regression-test: build
 	@(cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} ${MAKE_FLAGS} \
