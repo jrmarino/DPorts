@@ -20,7 +20,8 @@ USE_LDCONFIG=	yes
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--enable-utf --enable-unicode-properties \
-		--enable-pcre8 --enable-pcre16 --enable-pcre32
+		--enable-pcre8 --disable-pcre16 --disable-pcre32 \
+		--enable-shared=no
 
 INSTALL_TARGET=	install-strip
 TEST_TARGET=	check

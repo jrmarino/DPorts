@@ -33,7 +33,7 @@ NLS_CONFIGURE_ENABLE=	nls
 NLS_CONFIGURE_ON=	--with-libintl-prefix=${LOCALBASE}
 NLS_CONFIGURE_OFF=	--without-libintl-prefix
 
-PCRE_LIB_DEPENDS=	libpcre.so:devel/pcre
+PCRE_BUILD_DEPENDS=	${LOCALBASE}/lib/libpcre.a:devel/pcre
 PCRE_CONFIGURE_ENABLE=	perl-regexp
 PCRE_CPPFLAGS=		-I${LOCALBASE}/include
 PCRE_LDFLAGS=		-L${LOCALBASE}/lib
