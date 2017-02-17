@@ -10,8 +10,6 @@ bin/bzmore
 bin/bzless
 include/bzlib.h
 lib/libbz2.a
-lib/libbz2.so
-lib/libbz2.so.1
 man/man1/bzgrep.1.gz
 man/man1/bzip2.1.gz
 man/man1/bzmore.1.gz

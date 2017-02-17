@@ -29,8 +29,8 @@ do-install:
 	${LN} -sf bzmore ${STAGEDIR}${PREFIX}/bin/bzless
 	${INSTALL_DATA} ${WRKSRC}/bzlib.h ${STAGEDIR}${PREFIX}/include
 	${INSTALL_DATA} ${WRKSRC}/libbz2.a ${STAGEDIR}${PREFIX}/lib
-	${INSTALL_LIB} ${WRKSRC}/libbz2.so.1 ${STAGEDIR}${PREFIX}/lib
-	${LN} -sf libbz2.so.1 ${STAGEDIR}${PREFIX}/lib/libbz2.so
+#	${INSTALL_LIB} ${WRKSRC}/libbz2.so.1 ${STAGEDIR}${PREFIX}/lib
+#	${LN} -sf libbz2.so.1 ${STAGEDIR}${PREFIX}/lib/libbz2.so
 	${INSTALL_MAN} ${WRKSRC}/bzip2.1 ${STAGEDIR}${PREFIX}/man/man1
 	${INSTALL_MAN} ${WRKSRC}/bzgrep.1 ${STAGEDIR}${PREFIX}/man/man1
 	${INSTALL_MAN} ${WRKSRC}/bzmore.1 ${STAGEDIR}${PREFIX}/man/man1
