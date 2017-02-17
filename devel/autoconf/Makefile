@@ -11,9 +11,9 @@ DISTNAME=	autoconf-${PORTVERSION}
 MAINTAINER=	tijl@FreeBSD.org
 COMMENT=	Automatically configure source code on many Un*x platforms
 
-BUILD_DEPENDS=	gm4:devel/m4 \
+BUILD_DEPENDS=	${LOCALBASE}/bin/m4:devel/m4 \
 		help2man:misc/help2man
-RUN_DEPENDS=	gm4:devel/m4 \
+RUN_DEPENDS=	${LOCALBASE}/bin/m4:devel/m4 \
 		autoconf-wrapper:devel/autoconf-wrapper
 
 BUILD_VERSION=	2.69
@@ -22,7 +22,7 @@ USES=		gmake makeinfo perl5 tar:xz
 INFO=		autoconf
 
 GNU_CONFIGURE=	yes
-CONFIGURE_ENV=	M4=${LOCALBASE}/bin/gm4 AWK=${AWK} \
+CONFIGURE_ENV=	M4=${LOCALBASE}/bin/m4 AWK=${AWK} \
 		ac_cv_prog_TEST_EMACS=no
 CONFIGURE_ARGS=	--program-suffix=-${BUILD_VERSION} --without-lispdir
 
