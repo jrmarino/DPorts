@@ -15,14 +15,13 @@ NO_WRKSUBDIR=	yes
 MAKEFILE=	makefile
 ALL_TARGET=	a.out
 CFLAGS+=	-DHAS_ISBLANK
-PLIST_FILES=	bin/nawk man/man1/nawk.1.gz
+PLIST_FILES=	bin/awk man/man1/awk.1.gz
 
-post-patch:
-	@${REINPLACE_CMD} -e 's|awk|nawk|g' ${WRKSRC}/awk.1
+#post-patch:
+#	@${REINPLACE_CMD} -e 's|awk|nawk|g' ${WRKSRC}/awk.1
 
 do-install:
-	${INSTALL_PROGRAM} ${WRKSRC}/a.out ${STAGEDIR}${PREFIX}/bin/nawk
-	${INSTALL_MAN} ${WRKSRC}/awk.1 \
-		${STAGEDIR}${MANPREFIX}/man/man1/nawk.1.gz
+	${INSTALL_PROGRAM} ${WRKSRC}/a.out ${STAGEDIR}${PREFIX}/bin/awk
+	${INSTALL_MAN} ${WRKSRC}/awk.1 ${STAGEDIR}${MANPREFIX}/man/man1/
 
 .include <bsd.port.mk>
