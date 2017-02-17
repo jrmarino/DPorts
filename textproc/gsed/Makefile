@@ -36,8 +36,7 @@ post-patch:
 
 post-configure:
 .for subdir in ${PATCH_SUBDIRS}
-	@${REINPLACE_CMD} -e 's|s,x,x,|s,^,g,|' \
-			  -e 's|^doc_DATA|#doc_DATA|' \
+	@${REINPLACE_CMD} -e 's|^doc_DATA|#doc_DATA|' \
 		${WRKSRC}/${subdir}/Makefile
 .endfor
 

@@ -1,5 +1,5 @@
-bin/gsed
-man/man1/gsed.1.gz
+bin/sed
+man/man1/sed.1.gz
 %%EXAMPLESDIR%%/binary.sed
 %%EXAMPLESDIR%%/binary2.sed
 %%EXAMPLESDIR%%/binary3.sed
