@@ -13,9 +13,9 @@ LICENSE=	GPLv3
 
 USES=		cpe charsetfix gmake tar:xz
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--program-prefix=g
+#CONFIGURE_ARGS=	--program-prefix=g
 CPE_VENDOR=	gnu
 
-PLIST_FILES=	bin/gpatch man/man1/gpatch.1.gz
+PLIST_FILES=	bin/patch man/man1/patch.1.gz
 
 .include <bsd.port.mk>
