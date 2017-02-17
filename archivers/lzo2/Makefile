@@ -15,7 +15,7 @@ LICENSE=	GPLv2
 
 USES=		libtool
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--enable-shared --docdir=${DOCSDIR}
+CONFIGURE_ARGS=	--enable-shared=no --docdir=${DOCSDIR}
 USE_LDCONFIG=	yes
 
 OPTIONS_DEFINE=	DOCS EXAMPLES
@@ -30,7 +30,7 @@ post-build:
 .endif
 
 post-install:
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/liblzo2.so.2
+#	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/liblzo2.so.2
 	${MKDIR} ${STAGEDIR}${DOCSDIR}
 	cd ${WRKSRC} && ${REINPLACE_CMD} -e 's,doc/,,' NEWS README
 .for i in AUTHORS BUGS COPYING NEWS README THANKS
