@@ -14,9 +14,10 @@ LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 OPTIONS_DEFINE=	LIBSIGSEGV EXAMPLES
+OPTIONS_DEFAULT=	LIBSIGSEGV
 LIBSIGSEGV_DESC=Use alternative page fault handler (GNU libsigsegv)
 
-CONFIGURE_ARGS=	--program-prefix=g
+#CONFIGURE_ARGS=	--program-prefix=g
 CONFIGURE_ENV=	MAKEINFO="makeinfo --no-split"
 GNU_CONFIGURE=	yes
 USES=		makeinfo tar:xz
@@ -27,7 +28,7 @@ PORTEXAMPLES=	*
 
 LIBSIGSEGV_CONFIGURE_OFF=	--without-libsigsegv-prefix
 LIBSIGSEGV_CONFIGURE_ON=	--with-libsigsegv-prefix=${LOCALBASE}
-LIBSIGSEGV_LIB_DEPENDS=		libsigsegv.so:devel/libsigsegv
+LIBSIGSEGV_BUILD_DEPENDS=	${LOCALBASE}/lib/libsigsegv.a:devel/libsigsegv
 
 post-patch:
 	@${REINPLACE_CMD} -e '/^* M4: / s|M4|G&|' ${WRKSRC}/doc/m4.texi
