@@ -9,14 +9,14 @@ MAINTAINER=	johans@FreeBSD.org
 COMMENT=	Fast lexical analyzer generator
 
 BUILD_DEPENDS=	help2man:misc/help2man \
-		gm4:devel/m4
-RUN_DEPENDS=	gm4:devel/m4
+		${LOCALBASE}/bin/m4:devel/m4
+RUN_DEPENDS=	${LOCALBASE}/bin/m4:devel/m4
 
 USES=		bison gmake libtool makeinfo tar:xz
 GNU_CONFIGURE=	yes
 # install flex header to its own dir to avoid conflict with system flex.
 CONFIGURE_ARGS=	--includedir=${PREFIX}/include/flex --disable-shared
-CONFIGURE_ENV=	M4=${LOCALBASE}/bin/gm4 MAKEINFO="makeinfo --no-split"
+CONFIGURE_ENV=	M4=/usr/bin/m4 MAKEINFO="makeinfo --no-split"
 INSTALL_TARGET=	install-strip
 
 INFO=		flex
