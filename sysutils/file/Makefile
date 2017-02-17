@@ -17,6 +17,7 @@ USE_LDCONFIG=	yes
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS+=--enable-fsect-man5
+CONFIGURE_ARGS+=	--enable-shared=no
 MAKE_ENV+=	INSTALL_STRIP_FLAG="${STRIP}"
 
 CONFLICTS=	tct-[0-9]*
