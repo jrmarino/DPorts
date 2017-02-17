@@ -11,9 +11,13 @@ COMMENT=	Library to create and read several streaming archive formats
 
 LICENSE=	BSD2CLAUSE
 
-LIB_DEPENDS=	libexpat.so:textproc/expat2
+BUILD_DEPENDS=	xz>0:archivers/xz \
+		bzip2>0:archivers/bzip2 \
+		zlib>0:archivers/zlib \
+		expat>0:textproc/expat2 \
+		libressl>0:security/libressl
 
-OPTIONS_DEFINE=	LZ4 LZO NETTLE
+OPTIONS_DEFINE=	LZ4 LZO #NETTLE
 OPTIONS_DEFAULT=LZ4 LZO
 
 LZ4_DESC=	Support lz4 compression via liblz4
@@ -25,7 +29,9 @@ GNU_CONFIGURE=	yes
 INSTALL_TARGET=	install-strip
 USE_LDCONFIG=	yes
 
-CONFIGURE_ARGS=	--without-xml2
+CONFIGURE_ARGS=	--without-xml2 \
+		--enable-shared=no \
+		--enable-static=yes
 
 PLIST_FILES=	bin/bsdcat \
 		bin/bsdcpio \
@@ -33,9 +39,6 @@ PLIST_FILES=	bin/bsdcat \
 		include/archive.h \
 		include/archive_entry.h \
 		lib/libarchive.a \
-		lib/libarchive.so \
-		lib/libarchive.so.13 \
-		lib/libarchive.so.13.2.2 \
 		libdata/pkgconfig/libarchive.pc \
 		man/man1/bsdcat.1.gz \
 		man/man1/bsdcpio.1.gz \
@@ -85,9 +88,9 @@ CFLAGS+=	"-I${LOCALBASE}/include"
 CPPFLAGS+=	"-I${LOCALBASE}/include"
 LDFLAGS+=	"-L${LOCALBASE}/lib"
 
-LZO_LIB_DEPENDS=	liblzo2.so:archivers/lzo2
+LZO_BUILD_DEPENDS=	lzo2>0:archivers/lzo2
 LZO_CONFIGURE_WITH=	lzo2
-LZ4_LIB_DEPENDS=	liblz4.so:archivers/liblz4
+LZ4_BUILD_DEPENDS=	liblz4>0:archivers/liblz4
 LZ4_CONFIGURE_WITH=	lz4
 
 NETTLE_LIB_DEPENDS=	libnettle.so:security/nettle
