@@ -14,6 +14,7 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
 
 GNU_CONFIGURE=	yes
+CONFIGURE_ARGS=	--enable-shared=no
 ALL_TARGET=	default
 USES=		libtool pathfix tar:bz2
 USE_LDCONFIG=	yes
