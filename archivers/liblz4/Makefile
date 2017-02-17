@@ -33,7 +33,8 @@ post-patch:
 		${WRKSRC}/programs/Makefile
 
 post-install:
+	${RM} ${STAGEDIR}${PREFIX}/lib/liblz4.so*
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/lz4*
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/liblz4.so.${SO_VER}
+#	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/liblz4.so.${SO_VER}
 
 .include <bsd.port.mk>
