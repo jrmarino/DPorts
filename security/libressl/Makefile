@@ -23,6 +23,7 @@ CONFLICTS_INSTALL=	libressl-devel-[0-9]* \
 			openssl-[0-9]* \
 			openssl-devel-[0-9]*
 
+CONFIGURE_ARGS=	--enable-shared=no --disable-hardening
 MAN3_EXTRA_PATCHES_OFF=	${FILESDIR}/extra-patch-MAN3
 
 GNU_CONFIGURE=	yes
@@ -44,7 +45,7 @@ post-install:
 	${RM} -r ${STAGEDIR}/${PREFIX}/etc/ssl/cert.pem
 
 post-install-NC-on:
-	${INSTALL_PROGRAM} ${WRKSRC}/apps/nc/.libs/nc ${STAGEDIR}/${PREFIX}/bin/nc
+	${INSTALL_PROGRAM} ${WRKSRC}/apps/nc/nc ${STAGEDIR}/${PREFIX}/bin/nc
 	${INSTALL_MAN} ${WRKSRC}/apps/nc/nc.1 ${STAGEDIR}/${PREFIX}/man/man1/nc.1
 
 .include <bsd.port.post.mk>

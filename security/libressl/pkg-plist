@@ -74,17 +74,8 @@ include/openssl/x509_vfy.h
 include/openssl/x509v3.h
 include/tls.h
 lib/libcrypto.a
-lib/libcrypto.so
-lib/libcrypto.so.38
-lib/libcrypto.so.38.0.0
 lib/libssl.a
-lib/libssl.so
-lib/libssl.so.39
-lib/libssl.so.39.0.0
 lib/libtls.a
-lib/libtls.so
-lib/libtls.so.11
-lib/libtls.so.11.0.0
 libdata/pkgconfig/libcrypto.pc
 libdata/pkgconfig/libssl.pc
 libdata/pkgconfig/libtls.pc
