@@ -21,6 +21,8 @@ BUILD_DEPENDS=	${LOCALBASE}/lib/libgmp.so:math/gmp \
 CONFLICTS=	libbfd-[0-9]*
 .endif
 
+BUILD_DEPENDS+=	zlib>0:archivers/zlib
+
 OPTIONS_DEFINE=	NLS RELRO
 
 RELRO_DESC=	enable -z relro in ELF linker by default
