@@ -13,21 +13,20 @@ Bin_DragonFly=	/bin/[ \
 		/usr/bin/chflags \
 		/bin/chmod \
 		/bin/cp \
-		/bin/csh \
 		/bin/date \
 		/bin/expr \
 		/bin/hostname \
 		/bin/kill \
 		/bin/link \
 		/bin/ln \
-		/bin/ls \
+		/usr/share/initrd/bin/ls \
 		/bin/mkdir \
 		/bin/mv \
 		/bin/pax \
 		/bin/realpath \
 		/bin/rm \
 		/bin/rmdir \
-		/bin/sh \
+		/usr/share/initrd/bin/sh \
 		/bin/sleep \
 		/bin/test \
 		/bin/unlink
@@ -36,21 +35,20 @@ Bin_FreeBSD=	/bin/[ \
 		/bin/chflags \
 		/bin/chmod \
 		/bin/cp \
-		/bin/csh \
 		/bin/date \
 		/bin/expr \
 		/bin/hostname \
 		/bin/kill \
 		/bin/link \
 		/bin/ln \
-		/bin/ls \
+		/rescue/ls \
 		/bin/mkdir \
 		/bin/mv \
 		/bin/pax \
 		/bin/realpath \
 		/bin/rm \
 		/bin/rmdir \
-		/bin/sh \
+		/rescue/sh \
 		/bin/sleep \
 		/bin/test \
 		/bin/unlink
@@ -207,8 +205,16 @@ posix_headers=		aio.h \
 			# end
 
 headers_FreeBSD=	${posix_headers:Nstropts.h:Ntrace.h} \
+			libutil.h \
+			pthread_np.h \
+			usb.h \
+			usbhid.h \
 			# end
 headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
+			libutil.h \
+			pthread_np.h \
+			usb.h \
+			usbhid.h \
 			db.h \
 			machine/cpumask.h \
 			machine/endian.h \
