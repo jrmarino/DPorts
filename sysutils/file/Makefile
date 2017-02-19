@@ -12,7 +12,9 @@ COMMENT=	Utility to determine file type
 
 LICENSE=	BSD2CLAUSE
 
-USES=		libtool
+BUILD_DEPENDS=	zlib>0:archivers/zlib
+
+USES=		libtool localbase:ldflags
 USE_LDCONFIG=	yes
 
 GNU_CONFIGURE=	yes
