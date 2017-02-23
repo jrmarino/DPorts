@@ -29,6 +29,7 @@ BUILD_DEPENDS=	nawk>0:lang/nawk \
 		gsed>0:textproc/gsed \
 		byacc>0:devel/byacc \
 		libdl>0:devel/libdl \
+		uname>0:sysutils/uname \
 		# end
 
 NO_BUILD=	yes

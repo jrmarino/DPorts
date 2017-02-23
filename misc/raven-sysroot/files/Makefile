@@ -64,6 +64,7 @@ Bin_FreeBSD=	/bin/[ \
 # /usr/bin/find   (misc/findutils)
 # /usr/bin/flex*  (textproc/flex)
 # /usr/bin/gzip*  (archivers/gzip)
+# /usr/bin/uname  (sysutils/uname)
 # /usr/bin/unzip  (archivers/unzip)
 # /usr/bin/xz*    (archivers/xz)
 # /usr/bin/m4     (devel/m4)
@@ -73,7 +74,6 @@ Bin_FreeBSD=	/bin/[ \
 # /usr/bin/tar    (archivers/libarchive)
 # /usr/bin/xargs  (misc/findutils)
 # /usr/bin/yacc   (devel/byacc)
-# TODO - rework uname
 
 Usr_Bin_DragonFly= \
 		/usr/bin/basename \
@@ -93,7 +93,6 @@ Usr_Bin_DragonFly= \
 		/usr/bin/touch \
 		/usr/bin/tr \
 		/usr/bin/tsort \
-		/usr/bin/uname \
 		/usr/bin/uniq \
 		/usr/bin/wc 
 
@@ -346,7 +345,7 @@ install:
              xz xzcat xzcmp xzdiff xzegrep xzfgrep xzgrep
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}/usr/bin/
 .endfor
-.for item in m4 patch sed yacc unzip
+.for item in m4 patch sed yacc uname unzip
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}/usr/bin/
 .endfor
 	cp ${LOCALBASE}/lib/libdl.a ${DESTDIR}/usr/lib/
