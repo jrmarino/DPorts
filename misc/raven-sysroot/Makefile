@@ -22,6 +22,7 @@ BUILD_DEPENDS=	nawk>0:lang/nawk \
 		flex>0:textproc/flex \
 		gzip>0:archivers/gzip \
 		xz>0:archivers/xz \
+		unzip>0:archivers/unzip \
 		m4>0:devel/m4 \
 		bmake>0:devel/bmake \
 		patch>0:devel/patch \

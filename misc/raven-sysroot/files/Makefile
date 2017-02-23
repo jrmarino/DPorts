@@ -64,6 +64,7 @@ Bin_FreeBSD=	/bin/[ \
 # /usr/bin/find   (misc/findutils)
 # /usr/bin/flex*  (textproc/flex)
 # /usr/bin/gzip*  (archivers/gzip)
+# /usr/bin/unzip  (archivers/unzip)
 # /usr/bin/xz*    (archivers/xz)
 # /usr/bin/m4     (devel/m4)
 # /usr/bin/make   (devel/bmake)
@@ -345,7 +346,7 @@ install:
              xz xzcat xzcmp xzdiff xzegrep xzfgrep xzgrep
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}/usr/bin/
 .endfor
-.for item in m4 patch sed yacc
+.for item in m4 patch sed yacc unzip
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}/usr/bin/
 .endfor
 	cp ${LOCALBASE}/lib/libdl.a ${DESTDIR}/usr/lib/
