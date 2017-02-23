@@ -18,6 +18,8 @@ LICENSE_NAME=	Info-ZIP license
 LICENSE_FILE=	${WRKSRC}/LICENSE
 LICENSE_PERMS=	dist-mirror dist-sell pkg-mirror pkg-sell auto-accept
 
+BUILD_DEPENDS=	bzip2>0:archivers/bzip2
+
 USES=		cpe
 CPE_VENDOR=	info-zip
 ALL_TARGET=	bsd
@@ -34,7 +36,7 @@ LOCAL_UNZIP=	${CFLAGS} -DACORN_FTYPE_NFS -DWILD_STOP_AT_DIR \
 		-DLARGE_FILE_SUPPORT
 
 MAKE_ENV=	LOCAL_UNZIP="${LOCAL_UNZIP}" \
-		D_USE_BZ2=-DUSE_BZIP2 L_BZ2=-lbz2
+		D_USE_BZ2=-DUSE_BZIP2 L_BZ2=${LOCALBASE}/lib/libbz2.a
 
 .ifdef USE_UNZIP
 .error You have "USE_UNZIP" variable defined in environment or in \
