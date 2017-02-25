@@ -68,6 +68,7 @@
 /usr/bin/patch
 /usr/bin/sdiff
 /usr/bin/sed
+/usr/bin/stat
 /usr/bin/tail
 /usr/bin/tar
 /usr/bin/tee
