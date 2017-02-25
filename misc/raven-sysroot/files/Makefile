@@ -88,6 +88,7 @@ Usr_Bin_DragonFly= \
 		/usr/bin/install \
 		/usr/bin/mkfifo \
 		/usr/bin/mktemp \
+		/usr/bin/stat \
 		/usr/bin/tail \
 		/usr/bin/tee \
 		/usr/bin/touch \
