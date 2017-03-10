@@ -4,6 +4,7 @@
 /bin/chmod
 /bin/cp
 /bin/date
+/bin/df
 /bin/expr
 /bin/hostname
 /bin/kill

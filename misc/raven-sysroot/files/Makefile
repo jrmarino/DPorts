@@ -14,6 +14,7 @@ Bin_DragonFly=	/bin/[ \
 		/bin/chmod \
 		/bin/cp \
 		/bin/date \
+		/bin/df \
 		/bin/expr \
 		/bin/hostname \
 		/bin/kill \
@@ -36,6 +37,7 @@ Bin_FreeBSD=	/bin/[ \
 		/bin/chmod \
 		/bin/cp \
 		/bin/date \
+		/bin/df \
 		/bin/expr \
 		/bin/hostname \
 		/bin/kill \
