@@ -14,7 +14,6 @@ Bin_DragonFly=	/bin/[ \
 		/bin/chmod \
 		/bin/cp \
 		/bin/date \
-		/bin/df \
 		/bin/expr \
 		/bin/hostname \
 		/bin/kill \
@@ -22,7 +21,6 @@ Bin_DragonFly=	/bin/[ \
 		/bin/ln \
 		/usr/share/initrd/bin/ls \
 		/bin/mkdir \
-		/sbin/mount \
 		/bin/mv \
 		/bin/pax \
 		/bin/realpath \
@@ -31,7 +29,6 @@ Bin_DragonFly=	/bin/[ \
 		/usr/share/initrd/bin/sh \
 		/bin/sleep \
 		/bin/test \
-		/sbin/umount \
 		/bin/unlink
 
 Bin_FreeBSD=	/bin/[ \
@@ -39,7 +36,6 @@ Bin_FreeBSD=	/bin/[ \
 		/bin/chmod \
 		/bin/cp \
 		/bin/date \
-		/bin/df \
 		/bin/expr \
 		/bin/hostname \
 		/bin/kill \
@@ -47,7 +43,6 @@ Bin_FreeBSD=	/bin/[ \
 		/bin/ln \
 		/rescue/ls \
 		/bin/mkdir \
-		/sbin/mount \
 		/bin/mv \
 		/bin/pax \
 		/bin/realpath \
@@ -56,7 +51,6 @@ Bin_FreeBSD=	/bin/[ \
 		/rescue/sh \
 		/bin/sleep \
 		/bin/test \
-		/sbin/umount \
 		/bin/unlink
 
 # /usr/bin/awk    (lang/nawk)

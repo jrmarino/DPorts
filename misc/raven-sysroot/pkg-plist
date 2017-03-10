@@ -4,7 +4,6 @@
 %%BASE%%/bin/chmod
 %%BASE%%/bin/cp
 %%BASE%%/bin/date
-%%BASE%%/bin/df
 %%BASE%%/bin/expr
 %%BASE%%/bin/hostname
 %%BASE%%/bin/kill
@@ -13,7 +12,6 @@
 %%BASE%%/bin/ls
 %%BASE%%/bin/md5
 %%BASE%%/bin/mkdir
-%%BASE%%/bin/mount
 %%BASE%%/bin/mv
 %%BASE%%/bin/pax
 %%BASE%%/bin/realpath
@@ -23,7 +21,6 @@
 %%BASE%%/bin/sha256
 %%BASE%%/bin/sleep
 %%BASE%%/bin/test
-%%BASE%%/bin/umount
 %%BASE%%/bin/unlink
 %%BASE%%/libexec/ld-elf.so.2
 %%BASE%%/usr/bin/awk
