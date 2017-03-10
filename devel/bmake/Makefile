@@ -16,8 +16,26 @@ PORTSCOUT=	skipv:200910007
 
 WRKSRC=		${WRKDIR}/${PORTNAME}
 
+MYFLAGS=	-DOSNAME=\\\"${OPSYS}\\\" \
+		-DOSARCH=\\\"${ARCH}\\\" \
+		-DARCHSTD=\\\"${ARCH:S/amd64/x86_64/}\\\" \
+		-DOSREL=\\\"${OSREL}\\\"
+
+.include <bsd.port.options.mk>
+
+.if ${OPSYS} == FreeBSD
+MYFLAGS+=	-DOSVER=\\\"${OSVERSION}\\\" \
+		-DOSMAJOR=\\\"${OSREL:R}\\\"
+.endif
+.if ${OPSYS} == DragonFly
+MYFLAGS+=	-DOSVER=\\\"${DFLYVERSION}\\\" \
+		-DOSMAJOR=\\\"${OSREL}\\\"
+.endif
+
 post-patch:	.SILENT
 	${REINPLACE_CMD} 's/^\.Nx/NetBSD/' ${WRKDIR}/bmake/bmake.1
+	${REINPLACE_CMD} -e 's|@CFLAGS@|${MYFLAGS} @CFLAGS@|' \
+		${WRKDIR}/bmake/make-bootstrap.sh.in
 
 do-build:
 	${SETENV} ${MAKE_ENV} ${SH} ${WRKDIR}/bmake/boot-strap \
