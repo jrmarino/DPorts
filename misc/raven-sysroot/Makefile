@@ -61,12 +61,18 @@ MAKE_ENV+=	libm=${Libm_${OPSYS}} \
 		libusbhid=${Libusbhid_${OPSYS}} \
 		# end
 
-MAKE_ARGS=	BASE=${PREFIX}/share/mk/raven-sysroot/${OPSYS}
-PLIST_SUB+=	BASE=share/mk/raven-sysroot/${OPSYS}
+RSYS=		${PREFIX}/share/raven-sysroot/${OPSYS}
+MAKE_ARGS=	BASE=${RSYS}
+PLIST_SUB+=	BASE=share/raven-sysroot/${OPSYS}
 
 do-extract:
 	${MKDIR} ${WRKSRC}
 	cp ${FILESDIR}/* ${WRKSRC}/
 	cat ${.CURDIR}/pkg-plist ${.CURDIR}/pkg-plist.${OPSYS} > ${WRKSRC}/package-list
+
+post-install:
+	cp ${FILESDIR}/group.${OPSYS:tl} ${STAGEDIR}${RSYS}/usr/share/group
+	cp ${FILESDIR}/master.passwd.${OPSYS:tl} ${STAGEDIR}${RSYS}/usr/share/master.passwd
+	/usr/sbin/pwd_mkdb -p -d ${STAGEDIR}${RSYS}/usr/share ${STAGEDIR}${RSYS}/usr/share/master.passwd 
 
 .include <bsd.port.mk>

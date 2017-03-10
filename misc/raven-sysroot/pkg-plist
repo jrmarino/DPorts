@@ -13,6 +13,7 @@
 %%BASE%%/bin/ls
 %%BASE%%/bin/md5
 %%BASE%%/bin/mkdir
+%%BASE%%/bin/mount
 %%BASE%%/bin/mv
 %%BASE%%/bin/pax
 %%BASE%%/bin/realpath
@@ -22,6 +23,7 @@
 %%BASE%%/bin/sha256
 %%BASE%%/bin/sleep
 %%BASE%%/bin/test
+%%BASE%%/bin/umount
 %%BASE%%/bin/unlink
 %%BASE%%/libexec/ld-elf.so.2
 %%BASE%%/usr/bin/awk
@@ -196,7 +198,11 @@
 %%BASE%%/usr/lib/pkgconfig/libusb-0.1.pc
 %%BASE%%/usr/lib/pkgconfig/libusb-1.0.pc
 %%BASE%%/usr/lib/pkgconfig/libusb-2.0.pc
-@dir %%BASE%%/usr/share
+%%BASE%%/usr/share/group
+%%BASE%%/usr/share/master.passwd
+%%BASE%%/usr/share/passwd
+%%BASE%%/usr/share/pwd.db
+%%BASE%%/usr/share/spwd.db
 @dir %%BASE%%/usr/include/arpa
 @dir %%BASE%%/usr/include/machine
 @dir %%BASE%%/usr/include/net
