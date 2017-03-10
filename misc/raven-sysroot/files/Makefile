@@ -281,79 +281,78 @@ sysroot:
 	@echo "building not required"
 
 install:
-	${MKDIR} ${DESTDIR}/bin \
-		${DESTDIR}/etc \
-		${DESTDIR}/libexec \
-		${DESTDIR}/usr/bin \
-		${DESTDIR}/usr/include \
-		${DESTDIR}/usr/lib/pkgconfig \
-		${DESTDIR}/usr/share \
-		${DESTDIR}/usr/local \
-		${DESTDIR}/usr/include/arpa \
-		${DESTDIR}/usr/include/sys \
-		${DESTDIR}/usr/include/net \
-		${DESTDIR}/usr/include/netinet \
-		${DESTDIR}/usr/include/netinet6 \
-		${DESTDIR}/usr/include/machine \
-		${DESTDIR}/usr/include/xlocale \
+	${MKDIR} ${DESTDIR}${BASE}/bin \
+		${DESTDIR}${BASE}/libexec \
+		${DESTDIR}${BASE}/usr/bin \
+		${DESTDIR}${BASE}/usr/include \
+		${DESTDIR}${BASE}/usr/lib/pkgconfig \
+		${DESTDIR}${BASE}/usr/share \
+		${DESTDIR}${BASE}/usr/local \
+		${DESTDIR}${BASE}/usr/include/arpa \
+		${DESTDIR}${BASE}/usr/include/sys \
+		${DESTDIR}${BASE}/usr/include/net \
+		${DESTDIR}${BASE}/usr/include/netinet \
+		${DESTDIR}${BASE}/usr/include/netinet6 \
+		${DESTDIR}${BASE}/usr/include/machine \
+		${DESTDIR}${BASE}/usr/include/xlocale \
 		# end
 .for item in ${Bin_${OPSYS}}
-	${BSD_INSTALL_PROGRAM} ${item} ${DESTDIR}/bin/
+	${BSD_INSTALL_PROGRAM} ${item} ${DESTDIR}${BASE}/bin/
 .endfor
 .for item in ${Usr_Bin_${OPSYS}}
-	${BSD_INSTALL_PROGRAM} ${item} ${DESTDIR}/usr/bin/
+	${BSD_INSTALL_PROGRAM} ${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
 .for item in ${Libexec_${OPSYS}}
-	${BSD_INSTALL_PROGRAM} ${item} ${DESTDIR}/libexec/
+	${BSD_INSTALL_PROGRAM} ${item} ${DESTDIR}${BASE}/libexec/
 .endfor
 .for item in ${dynamic_lib_${OPSYS}}
-	${BSD_INSTALL_LIB} ${item} ${DESTDIR}/usr/lib/
+	${BSD_INSTALL_LIB} ${item} ${DESTDIR}${BASE}/usr/lib/
 .endfor
 .for item in ${static_lib_${OPSYS}}
-	${BSD_INSTALL_DATA} ${item} ${DESTDIR}/usr/lib/
+	${BSD_INSTALL_DATA} ${item} ${DESTDIR}${BASE}/usr/lib/
 .endfor
-	(cd ${DESTDIR}/usr/lib && \
+	(cd ${DESTDIR}${BASE}/usr/lib && \
 		ln -s ${libc} libc.so && \
 		ln -s ${libm} libm.so && \
 		ln -s ${libutil} libutil.so)
 .if ${OPSYS} == DragonFly || ${OPSYS} == FreeBSD
-	(cd ${DESTDIR}/usr/lib && \
+	(cd ${DESTDIR}${BASE}/usr/lib && \
 		ln -s ${libusb} libusb.so && \
 		ln -s ${libusbhid} libusbhid.so)
 .endif
-	cp ${LOCALBASE}/bin/awk ${DESTDIR}/usr/bin/
+	cp ${LOCALBASE}/bin/awk ${DESTDIR}${BASE}/usr/bin/
 .for item in ${dynamic_ln_${OPSYS}}
-	(cd ${DESTDIR}/usr/lib
+	(cd ${DESTDIR}${BASE}/usr/lib
 .endfor
 .for item in ${pcfiles_${OPSYS}}
-	${BSD_INSTALL_DATA} /usr/libdata/pkgconfig/${item} ${DESTDIR}/usr/lib/pkgconfig/
+	${BSD_INSTALL_DATA} /usr/libdata/pkgconfig/${item} ${DESTDIR}${BASE}/usr/lib/pkgconfig/
 .endfor
 
 .for item in bzip2 bunzip2 bzcat bzgrep bzegrep bzfgrep 
-	cp ${LOCALBASE}/bin/${item} ${DESTDIR}/usr/bin/
+	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
 .for item in cmp diff diff3 sdiff egrep fgrep grep fetch find file xargs
-	cp ${LOCALBASE}/bin/${item} ${DESTDIR}/usr/bin/
+	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
-	cp ${LOCALBASE}/bin/bmake   ${DESTDIR}/usr/bin/make
-	cp ${LOCALBASE}/bin/bsdcat  ${DESTDIR}/bin/cat
-	cp ${LOCALBASE}/bin/bsdcpio ${DESTDIR}/usr/bin/cpio
-	cp ${LOCALBASE}/bin/bsdtar  ${DESTDIR}/usr/bin/tar
-	cp ${LOCALBASE}/bin/md5     ${DESTDIR}/bin/
-	cp ${LOCALBASE}/bin/sha256  ${DESTDIR}/bin/
+	cp ${LOCALBASE}/bin/bmake   ${DESTDIR}${BASE}/usr/bin/make
+	cp ${LOCALBASE}/bin/bsdcat  ${DESTDIR}${BASE}/bin/cat
+	cp ${LOCALBASE}/bin/bsdcpio ${DESTDIR}${BASE}/usr/bin/cpio
+	cp ${LOCALBASE}/bin/bsdtar  ${DESTDIR}${BASE}/usr/bin/tar
+	cp ${LOCALBASE}/bin/md5     ${DESTDIR}${BASE}/bin/
+	cp ${LOCALBASE}/bin/sha256  ${DESTDIR}${BASE}/bin/
 .for item in flex flex++ gzip gunzip zcat zcmp zdiff zegrep zfgrep zgrep
-	cp ${LOCALBASE}/bin/${item} ${DESTDIR}/usr/bin/
+	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
 .for item in lzcat lzcmp lzdiff lzegrep lzfgrep lzgrep lzma unlzma unxz \
              xz xzcat xzcmp xzdiff xzegrep xzfgrep xzgrep
-	cp ${LOCALBASE}/bin/${item} ${DESTDIR}/usr/bin/
+	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
 .for item in m4 patch sed yacc uname unzip
-	cp ${LOCALBASE}/bin/${item} ${DESTDIR}/usr/bin/
+	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
-	cp ${LOCALBASE}/lib/libdl.a ${DESTDIR}/usr/lib/
+	cp ${LOCALBASE}/lib/libdl.a ${DESTDIR}${BASE}/usr/lib/
 .for item in ${headers_${OPSYS}}
-	${BSD_INSTALL_DATA} /usr/include/${item} ${DESTDIR}/usr/include/${item}
+	${BSD_INSTALL_DATA} /usr/include/${item} ${DESTDIR}${BASE}/usr/include/${item}
 .endfor
 
 extra-includes:

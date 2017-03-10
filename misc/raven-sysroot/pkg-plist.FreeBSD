@@ -1,7 +1,6 @@
-@comment tbd
-/usr/lib/libusb.a
-/usr/lib/libusb.so
-/usr/lib/%%SONAME_LIBUSB%%
-/usr/lib/libusbhid.a
-/usr/lib/libusbhid.so
-/usr/lib/%%SONAME_LIBUSBHID%%
+%%BASE%%/usr/lib/libusb.a
+%%BASE%%/usr/lib/libusb.so
+%%BASE%%/usr/lib/%%SONAME_LIBUSB%%
+%%BASE%%/usr/lib/libusbhid.a
+%%BASE%%/usr/lib/libusbhid.so
+%%BASE%%/usr/lib/%%SONAME_LIBUSBHID%%

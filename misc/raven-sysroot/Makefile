@@ -61,6 +61,9 @@ MAKE_ENV+=	libm=${Libm_${OPSYS}} \
 		libusbhid=${Libusbhid_${OPSYS}} \
 		# end
 
+MAKE_ARGS=	BASE=${PREFIX}/share/mk/raven-sysroot/${OPSYS}
+PLIST_SUB+=	BASE=share/mk/raven-sysroot/${OPSYS}
+
 do-extract:
 	${MKDIR} ${WRKSRC}
 	cp ${FILESDIR}/* ${WRKSRC}/
