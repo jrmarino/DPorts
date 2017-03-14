@@ -74,5 +74,6 @@ post-install:
 	cp ${FILESDIR}/group.${OPSYS:tl} ${STAGEDIR}${RSYS}/usr/share/group
 	cp ${FILESDIR}/master.passwd.${OPSYS:tl} ${STAGEDIR}${RSYS}/usr/share/master.passwd
 	/usr/sbin/pwd_mkdb -p -d ${STAGEDIR}${RSYS}/usr/share ${STAGEDIR}${RSYS}/usr/share/master.passwd 
+	cp ${FILESDIR}/rc.conf.${OPSYS:tl} ${STAGEDIR}${RSYS}/usr/share/rc.conf
 
 .include <bsd.port.mk>
