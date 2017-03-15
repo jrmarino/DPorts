@@ -54,6 +54,7 @@
 %%BASE%%/usr/bin/head
 %%BASE%%/usr/bin/id
 %%BASE%%/usr/bin/install
+%%BASE%%/usr/bin/less
 %%BASE%%/usr/bin/lzcat
 %%BASE%%/usr/bin/lzcmp
 %%BASE%%/usr/bin/lzdiff
@@ -65,7 +66,9 @@
 %%BASE%%/usr/bin/make
 %%BASE%%/usr/bin/mkfifo
 %%BASE%%/usr/bin/mktemp
+%%BASE%%/usr/bin/more
 %%BASE%%/usr/bin/patch
+%%BASE%%/usr/bin/printenv
 %%BASE%%/usr/bin/sdiff
 %%BASE%%/usr/bin/sed
 %%BASE%%/usr/bin/stat
@@ -80,6 +83,7 @@
 %%BASE%%/usr/bin/unlzma
 %%BASE%%/usr/bin/unxz
 %%BASE%%/usr/bin/unzip
+%%BASE%%/usr/bin/vi
 %%BASE%%/usr/bin/wc
 %%BASE%%/usr/bin/xargs
 %%BASE%%/usr/bin/xz
@@ -195,6 +199,10 @@
 %%BASE%%/usr/lib/pkgconfig/libusb-0.1.pc
 %%BASE%%/usr/lib/pkgconfig/libusb-1.0.pc
 %%BASE%%/usr/lib/pkgconfig/libusb-2.0.pc
+%%BASE%%/usr/share/OSMAJOR
+%%BASE%%/usr/share/OSRELEASE
+%%BASE%%/usr/share/OSVERSION
+%%BASE%%/usr/share/STDARCH
 %%BASE%%/usr/share/group
 %%BASE%%/usr/share/master.passwd
 %%BASE%%/usr/share/passwd

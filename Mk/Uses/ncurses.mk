@@ -26,13 +26,7 @@
 .if !defined(_INCLUDE_USES_NCURSES_MK)
 _INCLUDE_USES_NCURSES_MK=	yes
 
-.if empty(ncurses_ARGS)
-.  if !exists(${DESTDIR}/${LOCALBASE}/lib/libncurses.so) && exists(${DESTDIR}/usr/lib/libncurses.so)
-ncurses_ARGS=	base
-.  else
 ncurses_ARGS=	port
-.  endif
-.endif
 
 .if ${ncurses_ARGS} == base
 NCURSESBASE=	/usr
@@ -69,14 +63,10 @@ NCURSES_SHLIBVER?=	${NCURSES_SHLIBFILE:E}
 .  endif
 
 NCURSES_PORT?=		devel/ncurses
-.  if exists (/usr/lib/priv/libprivate_ncursesw.so)
 NCURSES_SHLIBVER?=	6
-.  else
-NCURSES_SHLIBVER?=	6P
-.  endif
 
-BUILD_DEPENDS+=		${LOCALBASE}/lib/libncurses.so.${NCURSES_SHLIBVER}:${NCURSES_PORT}
-RUN_DEPENDS+=		${LOCALBASE}/lib/libncurses.so.${NCURSES_SHLIBVER}:${NCURSES_PORT}
+BUILD_DEPENDS+=		ncurses>0:${NCURSES_PORT}
+RUN_DEPENDS+=		ncurses>0:${NCURSES_PORT}
 NCURSESRPATH=		${NCURSESBASE}/lib
 LDFLAGS+=		-L${NCURSESRPATH} -Wl,-rpath=${NCURSESRPATH}
 CFLAGS+=		-I${NCURSESBASE}/include -I${NCURSESINC}

@@ -30,6 +30,8 @@ BUILD_DEPENDS=	nawk>0:lang/nawk \
 		byacc>0:devel/byacc \
 		libdl>0:devel/libdl \
 		uname>0:sysutils/uname \
+		less>0:sysutils/less \
+		nvi>0:editors/nvi-devel \
 		# end
 
 NO_BUILD=	yes
@@ -75,5 +77,10 @@ post-install:
 	cp ${FILESDIR}/master.passwd.${OPSYS:tl} ${STAGEDIR}${RSYS}/usr/share/master.passwd
 	/usr/sbin/pwd_mkdb -p -d ${STAGEDIR}${RSYS}/usr/share ${STAGEDIR}${RSYS}/usr/share/master.passwd 
 	cp ${FILESDIR}/rc.conf.${OPSYS:tl} ${STAGEDIR}${RSYS}/usr/share/rc.conf
+	# change for FreeBSD
+	echo "${.MAKE.DF.OSREL}"   > ${STAGEDIR}${RSYS}/usr/share/OSRELEASE
+	echo "${.MAKE.DF.OSREL}"   > ${STAGEDIR}${RSYS}/usr/share/OSMAJOR
+	echo "${.MAKE.DF.VERSION}" > ${STAGEDIR}${RSYS}/usr/share/OSVERSION
+	echo "x86_64"              > ${STAGEDIR}${RSYS}/usr/share/STDARCH
 
 .include <bsd.port.mk>

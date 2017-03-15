@@ -76,7 +76,7 @@ _DB_DEFAULTS+=	6
 
 # Dependency lines for different db versions
 db48_DEPENDS=	libdb-4.8.so:databases/db48
-db5_DEPENDS=	libdb-5.3.so:databases/db5
+db5_DEPENDS=	db5>0:databases/db5
 db6_DEPENDS=	libdb-6.2.so:databases/db6
 # Detect db versions by finding some files
 db48_FIND=	${LOCALBASE}/include/db48/db.h
@@ -183,7 +183,8 @@ IGNORE=		cannot install: no eligible BerkeleyDB version. Requested: ${_bdb_ARGS}
 . if defined(BDB_BUILD_DEPENDS)
 BUILD_DEPENDS+=	${db${_BDB_VER}_FIND}:${db${_BDB_VER}_DEPENDS:C/^libdb.*://}
 . else
-LIB_DEPENDS+=	${db${_BDB_VER}_DEPENDS}
+BUILD_DEPENDS+=	${db${_BDB_VER}_DEPENDS}
+RUN_DEPENDS+=	${db${_BDB_VER}_DEPENDS}
 . endif
 . if ${_BDB_VER} == 48
 BDB_LIB_NAME=		db-4.8

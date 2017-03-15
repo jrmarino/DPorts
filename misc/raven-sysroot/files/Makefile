@@ -74,6 +74,7 @@ Bin_FreeBSD=	/bin/[ \
 # /usr/bin/tar    (archivers/libarchive)
 # /usr/bin/xargs  (misc/findutils)
 # /usr/bin/yacc   (devel/byacc)
+# /usr/bin/less*  (sysutils/less)
 
 Usr_Bin_DragonFly= \
 		/usr/bin/basename \
@@ -88,6 +89,7 @@ Usr_Bin_DragonFly= \
 		/usr/bin/install \
 		/usr/bin/mkfifo \
 		/usr/bin/mktemp \
+		/usr/bin/printenv \
 		/usr/bin/stat \
 		/usr/bin/tail \
 		/usr/bin/tee \
@@ -345,10 +347,11 @@ install:
              xz xzcat xzcmp xzdiff xzegrep xzfgrep xzgrep
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
-.for item in m4 patch sed yacc uname unzip
+.for item in m4 patch sed yacc uname unzip less vi
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
 	cp ${LOCALBASE}/lib/libdl.a ${DESTDIR}${BASE}/usr/lib/
+	cp ${LOCALBASE}/bin/less    ${DESTDIR}${BASE}/usr/bin/more
 .for item in ${headers_${OPSYS}}
 	${BSD_INSTALL_DATA} /usr/include/${item} ${DESTDIR}${BASE}/usr/include/${item}
 .endfor

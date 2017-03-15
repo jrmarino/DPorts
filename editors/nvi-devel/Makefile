@@ -21,7 +21,8 @@ GNU_CONFIGURE=		yes
 USE_LDCONFIG=		yes
 USES=			bdb iconv libtool ncurses pkgconfig tar:bzip2
 CONFIGURE_ARGS+=	--with-db-prefix=${LOCALBASE} \
-			--program-prefix=n
+			--enable-shared=no \
+			--with-curses=${NCURSESBASE}
 CONFIGURE_SCRIPT=	../dist/configure
 
 WIDECHAR_CONFIGURE_ON=	--enable-widechar
@@ -32,7 +33,7 @@ LDFLAGS+=		-L${BDB_LIB_DIR} -L${LOCALBASE}/lib
 post-patch:
 	@${REINPLACE_CMD} -e '/libvi_la_LIBADD =/s,$$, ${ICONV_LIB},' \
 		${WRKSRC}/../dist/Makefile.in
-	@${REINPLACE_CMD} -e 's,-ldb,-l${BDB_LIB_NAME},g' \
+	@${REINPLACE_CMD} -e 's,-ldb,-l${BDB_LIB_NAME} -lpthread,g' \
 		${WRKSRC}/../dist/configure
 
 post-install:

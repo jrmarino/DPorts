@@ -24,7 +24,7 @@ CONFIGURE_ARGS=	--datadir=${PREFIX}/share/misc --disable-overwrite \
 		--enable-colorfgbg --disable-home-terminfo \
 		--with-pkg-config=yes --enable-pc-files \
 		--includedir=${PREFIX}/include/ncurses \
-		--with-shared \
+		--with-shared=no \
 		--with-termlib --program-prefix= \
 		--enable-rpath --disable-root-environ \
 		--with-manpage-format=gzip --srcdir=../ \
@@ -132,12 +132,10 @@ post-install:
 . endfor
 .endfor
 
-	${RM} ${STAGEDIR}${PREFIX}/lib/libncurses.so \
-		${STAGEDIR}${PREFIX}/lib/libncursesw.so
-	${ECHO} "INPUT(libncurses.so.${NCVER} AS_NEEDED(-ltinfo))" > ${STAGEDIR}${PREFIX}/lib/libncurses.so
-	${ECHO} "INPUT(libncursesw.so.${NCVER} AS_NEEDED(-ltinfow))" > ${STAGEDIR}${PREFIX}/lib/libncursesw.so
-
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/*.so.${REL_VER}
+#	${RM} ${STAGEDIR}${PREFIX}/lib/libncurses.so \
+#		${STAGEDIR}${PREFIX}/lib/libncursesw.so
+#	${ECHO} "INPUT(libncurses.so.${NCVER} AS_NEEDED(-ltinfo))" > ${STAGEDIR}${PREFIX}/lib/libncurses.so
+#	${ECHO} "INPUT(libncursesw.so.${NCVER} AS_NEEDED(-ltinfow))" > ${STAGEDIR}${PREFIX}/lib/libncursesw.so
 
 	${MV} ${STAGEDIR}${PREFIX}/share/misc/terminfo.db \
 		${STAGEDIR}${PREFIX}/share/misc/terminfo.db.default
