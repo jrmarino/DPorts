@@ -2,9 +2,10 @@
 
 .include "Makefile.version"
 
-LIB_DEPENDS=		libgmp.so:math/gmp
-LIB_DEPENDS+=		libmpfr.so:math/mpfr
-LIB_DEPENDS+=		libmpc.so:math/mpc
+BUILD_DEPENDS=		gmp>0:math/gmp
+BUILD_DEPENDS+=		mpfr>0:math/mpfr
+BUILD_DEPENDS+=		mpc>0:math/mpc
+BUILD_DEPENDS+=		${LOCALBASE}/bin/flex:textproc/flex
 
 GNU_CONFIGURE=		yes
 USES=			gmake libtool perl5 tar:bzip2

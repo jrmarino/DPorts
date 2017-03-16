@@ -21,8 +21,11 @@ CONFIGURE_ENV=	MAKEINFO="makeinfo --no-split"
 CONFIGURE_ARGS=	--prefix=${PREFIX} \
 		--infodir=${PREFIX}/info \
 		--mandir=${PREFIX}/man \
+		--enable-shared=no \
 		--enable-cxx
 USE_LDCONFIG=	yes
+
+BUILD_DEPENDS=	m4:devel/m4
 
 INFO=		gmp
 

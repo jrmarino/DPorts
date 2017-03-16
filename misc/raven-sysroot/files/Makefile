@@ -355,6 +355,7 @@ install:
 .for item in ${headers_${OPSYS}}
 	${BSD_INSTALL_DATA} /usr/include/${item} ${DESTDIR}${BASE}/usr/include/${item}
 .endfor
+	cp ${LOCALBASE}/share/misc/terminfo.db.default ${DESTDIR}${BASE}/usr/share/terminfo.db
 
 extra-includes:
 .for item in ${headers_${OPSYS}}

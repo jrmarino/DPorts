@@ -9,21 +9,22 @@ MASTER_SITES=	http://www.multiprecision.org/mpc/download/
 MAINTAINER=	gerald@FreeBSD.org
 COMMENT=	Library of complex numbers with arbitrarily high precision
 
-LIB_DEPENDS=	libgmp.so:math/gmp \
-		libmpfr.so:math/mpfr
+BUILD_DEPENDS=	gmp>0:math/gmp \
+		mpfr>0:math/mpfr
 
 PORTSCOUT=	site:http://www.multiprecision.org/index.php?prog=mpc&page=download
 
 GNU_CONFIGURE=	yes
 CONFIGURE_ARGS=	--with-gmp=${LOCALBASE} \
-		--with-mpfr=${LOCALBASE}
+		--with-mpfr=${LOCALBASE} \
+		--enable-shared=no
 INSTALL_TARGET=	install-strip
 USES=		libtool
 USE_LDCONFIG=	yes
 
 INFO=		mpc
 PLIST_FILES=	include/mpc.h \
-		lib/libmpc.a lib/libmpc.so lib/libmpc.so.3 lib/libmpc.so.3.0.0
+		lib/libmpc.a
 
 regression-test: build
 	@(cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${MAKE_CMD} check)

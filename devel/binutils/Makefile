@@ -15,8 +15,8 @@ LICENSE=	GPLv3 LGPL3
 LICENSE_COMB=	multi
 
 .if !defined(CROSS_TOOLCHAIN)
-BUILD_DEPENDS=	${LOCALBASE}/lib/libgmp.so:math/gmp \
-		${LOCALBASE}/lib/libmpfr.so:math/mpfr
+BUILD_DEPENDS=	gmp>0:math/gmp \
+		mpfr>0:math/mpfr
 
 CONFLICTS=	libbfd-[0-9]*
 .endif
@@ -24,6 +24,7 @@ CONFLICTS=	libbfd-[0-9]*
 BUILD_DEPENDS+=	zlib>0:archivers/zlib
 
 OPTIONS_DEFINE=	NLS RELRO
+OPTIONS_DEFAULT=	RELRO
 
 RELRO_DESC=	enable -z relro in ELF linker by default
 
@@ -83,6 +84,8 @@ NLS_USES=	gettext
 NLS_CONFIGURE_ENABLE=	nls
 
 .include <bsd.port.pre.mk>
+
+PREFIX:=	${PREFIX}/toolchain
 
 # Actual earliest version may differ slightly
 .if ${ARCH} != powerpc && ${ARCH} != powerpc64 && ${ARCH} != ia64 && ${ARCH} != i386 && ${ARCH} != mips && ${ARCH} != mips64 && !defined(PKGNAMEPREFIX) && (${COMPILER_TYPE} == clang && ${COMPILER_VERSION} >= 34 || ${COMPILER_TYPE} == gcc)

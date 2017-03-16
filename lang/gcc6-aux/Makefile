@@ -1,7 +1,7 @@
 # Created by: John Marino <marino@FreeBSD.org>
 # $FreeBSD$
 
-PORTNAME=	gcc6-aux
+PORTNAME=	toolchain-gcc6
 PORTVERSION=	${SNAPSHOT}
 PORTREVISION=	${MAIN_PR}
 CATEGORIES=	lang
@@ -30,7 +30,7 @@ CPPFLAGS+=		-I${LOCALBASE}/include
 LDFLAGS+=		-L${LOCALBASE}/lib
 
 OPTIONS_GROUP=		Standard Bootstrap
-OPTIONS_GROUP_Standard=	FORTRAN OBJC NLS TESTSUITE ALLSTAGES STATIC
+OPTIONS_GROUP_Standard=	FORTRAN OBJC FAKENLS TESTSUITE ALLSTAGES STATIC
 OPTIONS_GROUP_Bootstrap=BOOTSTRAP
 OPTIONS_DEFAULT=	FORTRAN OBJC
 NO_OPTIONS_SORT=	yes
@@ -50,7 +50,6 @@ BOOTSTRAP_DESC=		Create bootstrap compiler (overrides other options)
 
 .if ${OPSYS} == FreeBSD
 ONLY_FOR_ARCHS=		amd64 i386 aarch64
-MODERN_BINUTILS=	yes
 .  if ${ARCH} == aarch64
 BOOTSTRAP_COMPILER=	ada-bootstrap.aarch64.freebsd.120.tar.bz2
 .  else
@@ -62,16 +61,11 @@ ONLY_FOR_ARCHS=		x86_64
 BOOTSTRAP_COMPILER=	ada-bootstrap.x86_64.dragonfly.41.tar.bz2
 .endif
 
-.if defined(MODERN_BINUTILS)
 # Apparently gcc 4.9 needs binutils 2.23 or greater to link Ada correctly
-USE_BINUTILS=	yes
-RUN_DEPENDS+=	${LOCALBASE}/bin/as:devel/binutils
-EXTRA_CONFIG+=	--with-ld=${LOCALBASE}/bin/ld
-EXTRA_CONFIG+=	--with-as=${LOCALBASE}/bin/as
-.else
-EXTRA_CONFIG+=	--with-ld=/usr/bin/ld
-EXTRA_CONFIG+=	--with-as=/usr/bin/as
-.endif
+BUILD_DEPENDS+=	binutils>0:devel/binutils
+RUN_DEPENDS+=	binutils>0:devel/binutils
+EXTRA_CONFIG+=	--with-ld=${LOCALBASE}/toolchain/bin/ld
+EXTRA_CONFIG+=	--with-as=${LOCALBASE}/toolchain/bin/as
 
 WRKSRC=			${WRKDIR}/${IDENTIFICATION}
 BUILDDIR=		${WRKDIR}/build
@@ -80,23 +74,9 @@ CFG_SCRIPT=		${WRKSRC}/configure
 REVFILE=		${WRKSRC}/gcc/REVISION
 PHASEFILE=		${WRKSRC}/gcc/DEV-PHASE
 BOOTSTRAP_PREFIX=	${WRKDIR}/bootstrap
-PKG_PREFIX=		${PREFIX}/${PORTNAME}
-MANPREFIX=		${PREFIX}/${PORTNAME}/share
+PKG_PREFIX=		${PREFIX}/toolchain/gcc6
+MANPREFIX=		${PREFIX}/toolchain/gcc6/share
 BSFILENAME=		ada-bootstrap.${GARCH}.${OPSYS:tl}.${OSREL:S/.//}.tar.bz2
-
-# If we find gnatmake and friends in a standard location, then we'll use this
-# compiler instead of downloading the bootstrap.
-.if exists (${LOCALBASE}/${PORTNAME}/bin/ada)
-.if exists (${LOCALBASE}/${PORTNAME}/bin/gnatbind)
-.if exists (${LOCALBASE}/${PORTNAME}/bin/gnatlink)
-.if exists (${LOCALBASE}/${PORTNAME}/bin/gnatmake)
-FULL_GNATGCC=${LOCALBASE}/${PORTNAME}/bin/ada
-FULL_GNATGXX=${LOCALBASE}/${PORTNAME}/bin/g++
-FULL_PATH=/sbin:/bin:/usr/sbin:/usr/bin:${PREFIX}/${PORTNAME}/bin:${PREFIX}/bin
-.endif
-.endif
-.endif
-.endif
 
 # If FULL_GNATGCC is not set, we'll request the bootstrap compiler
 .if ${FULL_GNATGCC} == NOT_SET
@@ -134,7 +114,7 @@ APPLY_DIFFS+=	ada-testsuite
 APPLY_DIFFS+=	gcc-testsuite
 .endif
 
-.if ${PORT_OPTIONS:MNLS} && !${PORT_OPTIONS:MBOOTSTRAP}
+.if ${PORT_OPTIONS:MFAKENLS} && !${PORT_OPTIONS:MBOOTSTRAP}
 USES+=		gettext
 EXTRA_CONFIG+=	--enable-nls
 .else
@@ -205,17 +185,18 @@ post-extract:
 .endif
 	# Update LINK_SPEC to add gcc-aux lib runpath in every binary
 	@${ECHO} "Configuring LINK_SPEC runpath"
-	@${REINPLACE_CMD} -e 's;\@PREFIX\@;${PREFIX};' \
-		-e 's;\@GCCAUX\@;${PORTNAME};' \
+	@${REINPLACE_CMD} -e 's;\@PREFIX\@;/raven/toolchain;' \
+		-e 's;\@GCCAUX\@;gcc6;' \
 		${WRKSRC}/gcc/config/dragonfly.h \
 		${WRKSRC}/gcc/config/i386/freebsd64.h \
 		${WRKSRC}/gcc/config/i386/freebsd.h \
 		${WRKSRC}/gcc/config/aarch64/aarch64-freebsd.h
-.if defined(MODERN_BINUTILS)
 	# Use dwarf4-compatible addr2line (affects FreeBSD only)
-	${REINPLACE_CMD} -e 's|/usr/bin/addr2line|${PREFIX}/bin/addr2line|g' \
-	  ${WRKSRC}/gcc/ada/traceback_symbolic.c
-.endif
+	${REINPLACE_CMD} -e 's|/usr/bin/addr2line|${PREFIX}/toolchain/bin/addr2line|g' \
+		${WRKSRC}/gcc/ada/traceback_symbolic.c
+	# This DF fix needs to be put upstream
+	${REINPLACE_CMD} -e 's|/usr/libexec/|/libexec/|' \
+		${WRKSRC}/gcc/config/dragonfly.h
 
 do-configure:
 	${MKDIR} ${BUILDDIR}
@@ -259,17 +240,17 @@ do-install:
 	cd ${BUILDDIR} && ${SETENV} ${ADA_MAKE_ENV} \
 		${MAKE_CMD} install-strip ${MAKE_ARGS}
 	${MV} ${STAGEDIR}${PKG_PREFIX}/share ${WRKDIR}/moved_share
-	${MKDIR} ${STAGEDIR}${PREFIX}/share/dejagnu/baseboards \
-		${STAGEDIR}${PREFIX}/share/dejagnu/config
-	${INSTALL_DATA} ${FILESDIR}/android6.exp \
-		${STAGEDIR}${PREFIX}/share/dejagnu/config
-	${INSTALL_DATA} ${FILESDIR}/gnatdroid6.exp \
-		${STAGEDIR}${PREFIX}/share/dejagnu/baseboards
+#	${MKDIR} ${STAGEDIR}${PREFIX}/share/dejagnu/baseboards \
+#		${STAGEDIR}${PREFIX}/share/dejagnu/config
+#	${INSTALL_DATA} ${FILESDIR}/android6.exp \
+#		${STAGEDIR}${PREFIX}/share/dejagnu/config
+#	${INSTALL_DATA} ${FILESDIR}/gnatdroid6.exp \
+#		${STAGEDIR}${PREFIX}/share/dejagnu/baseboards
 
 post-stage:
 	(cd ${STAGEDIR}${PKG_PREFIX}; ${FIND} * -type d -empty | \
 		${SORT} -dr | ${XARGS} ${RMDIR})
-	(cd ${STAGEDIR}${PREFIX}; ${FIND} ${PORTNAME} share \
+	(cd ${STAGEDIR}${PREFIX}; ${FIND} toolchain \
 		\( -type f -or -type l \) | ${SORT} | ${SED} \
 		-e 's/\/man\/man[1578]\/.*[1578]$$/&.gz/' >> ${TMPPLIST})
 .if ${PORT_OPTIONS:MBOOTSTRAP}

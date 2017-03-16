@@ -17,7 +17,7 @@ COMMENT=	Library for multiple-precision floating-point computations
 LICENSE=	LGPL3
 
 #PATCH_DEPENDS=	gpatch:devel/patch
-LIB_DEPENDS=	libgmp.so:math/gmp
+BUILD_DEPENDS=	gmp>0:math/gmp
 
 PATCHLEVEL=	2
 PATCHFILES!=	/usr/bin/jot -s " " -w patch%02d ${PATCHLEVEL} 1 ${PATCHLEVEL}
@@ -25,7 +25,8 @@ PATCHFILES!=	/usr/bin/jot -s " " -w patch%02d ${PATCHLEVEL} 1 ${PATCHLEVEL}
 
 USES=		libtool tar:xz
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--with-gmp=${LOCALBASE}
+CONFIGURE_ARGS=	--with-gmp=${LOCALBASE} \
+		--enable-shared=no
 INSTALL_TARGET=	install-strip
 TEST_TARGET=	check
 USE_LDCONFIG=	yes

@@ -208,6 +208,7 @@
 %%BASE%%/usr/share/passwd
 %%BASE%%/usr/share/pwd.db
 %%BASE%%/usr/share/spwd.db
+%%BASE%%/usr/share/terminfo.db
 %%BASE%%/usr/share/rc.conf
 @dir %%BASE%%/usr/include/arpa
 @dir %%BASE%%/usr/include/machine

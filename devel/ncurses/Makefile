@@ -19,7 +19,7 @@ BROKEN_sparc64=	cannot build: coredump: illegal instruction
 
 GNU_CONFIGURE=	yes
 CONFIGURE_SCRIPT=../configure
-CONFIGURE_ARGS=	--datadir=${PREFIX}/share/misc --disable-overwrite \
+CONFIGURE_ARGS=	--datadir=/usr/share --disable-overwrite \
 		--enable-termcap --enable-bsdpad --enable-getcap \
 		--enable-colorfgbg --disable-home-terminfo \
 		--with-pkg-config=yes --enable-pc-files \
@@ -137,8 +137,9 @@ post-install:
 #	${ECHO} "INPUT(libncurses.so.${NCVER} AS_NEEDED(-ltinfo))" > ${STAGEDIR}${PREFIX}/lib/libncurses.so
 #	${ECHO} "INPUT(libncursesw.so.${NCVER} AS_NEEDED(-ltinfow))" > ${STAGEDIR}${PREFIX}/lib/libncursesw.so
 
-	${MV} ${STAGEDIR}${PREFIX}/share/misc/terminfo.db \
+	${MV} ${STAGEDIR}/usr/share/terminfo.db \
 		${STAGEDIR}${PREFIX}/share/misc/terminfo.db.default
+	${MV} ${STAGEDIR}/usr/share/tabset ${STAGEDIR}${PREFIX}/share/misc/
 
 post-install-DOCS-on:
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
