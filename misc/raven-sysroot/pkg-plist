@@ -54,6 +54,7 @@
 %%BASE%%/usr/bin/head
 %%BASE%%/usr/bin/id
 %%BASE%%/usr/bin/install
+%%BASE%%/usr/bin/ldd
 %%BASE%%/usr/bin/less
 %%BASE%%/usr/bin/lzcat
 %%BASE%%/usr/bin/lzcmp
@@ -85,6 +86,7 @@
 %%BASE%%/usr/bin/unzip
 %%BASE%%/usr/bin/vi
 %%BASE%%/usr/bin/wc
+%%BASE%%/usr/bin/which
 %%BASE%%/usr/bin/xargs
 %%BASE%%/usr/bin/xz
 %%BASE%%/usr/bin/xzcat

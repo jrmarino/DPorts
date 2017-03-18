@@ -34,6 +34,8 @@ LICENSE_FILE_LGPL3=	${WRKSRC}/COPYING3.LIB
 USES=		bison gmake libtool tar:bzip2 compiler:env
 GNU_CONFIGURE=	yes
 
+PREFIX=		/raven/toolchain
+
 .if defined(PKGNAMEPREFIX)
 .  if !defined(BUTARGET)
 IGNORE=		target ${PKGNAMEPREFIX}${OPSYS:tl} will never build
@@ -84,8 +86,6 @@ NLS_USES=	gettext
 NLS_CONFIGURE_ENABLE=	nls
 
 .include <bsd.port.pre.mk>
-
-PREFIX:=	${PREFIX}/toolchain
 
 # Actual earliest version may differ slightly
 .if ${ARCH} != powerpc && ${ARCH} != powerpc64 && ${ARCH} != ia64 && ${ARCH} != i386 && ${ARCH} != mips && ${ARCH} != mips64 && !defined(PKGNAMEPREFIX) && (${COMPILER_TYPE} == clang && ${COMPILER_VERSION} >= 34 || ${COMPILER_TYPE} == gcc)

@@ -1,5 +1,10 @@
 %%BASE%%/usr/lib/libpthread.so.0
+%%BASE%%/usr/lib/crt1.o
+%%BASE%%/usr/lib/crti.o
+%%BASE%%/usr/lib/crtn.o
 %%BASE%%/usr/include/db.h
+%%BASE%%/usr/include/cpu/atomic.h
+%%BASE%%/usr/include/cpu/types.h
 %%BASE%%/usr/include/machine/cpumask.h
 %%BASE%%/usr/include/machine/endian.h
 %%BASE%%/usr/include/machine/fenv.h
@@ -8,9 +13,12 @@
 %%BASE%%/usr/include/machine/inttypes.h
 %%BASE%%/usr/include/machine/limits.h
 %%BASE%%/usr/include/machine/setjmp.h
+%%BASE%%/usr/include/machine/signal.h
 %%BASE%%/usr/include/machine/stdarg.h
 %%BASE%%/usr/include/machine/stdint.h
+%%BASE%%/usr/include/machine/trap.h
 %%BASE%%/usr/include/machine/types.h
+%%BASE%%/usr/include/machine/ucontext.h
 %%BASE%%/usr/include/net/if_var.h
 %%BASE%%/usr/include/netinet6/in6.h
 %%BASE%%/usr/include/runetype.h
@@ -37,6 +45,7 @@
 %%BASE%%/usr/include/sys/timespec.h
 %%BASE%%/usr/include/sys/ttycom.h
 %%BASE%%/usr/include/sys/ttydefaults.h
+%%BASE%%/usr/include/sys/ucontext.h
 %%BASE%%/usr/include/sys/unistd.h
 %%BASE%%/usr/include/sys/uuid.h
 %%BASE%%/usr/include/xlocale.h

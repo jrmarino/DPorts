@@ -64,8 +64,8 @@ BOOTSTRAP_COMPILER=	ada-bootstrap.x86_64.dragonfly.41.tar.bz2
 # Apparently gcc 4.9 needs binutils 2.23 or greater to link Ada correctly
 BUILD_DEPENDS+=	binutils>0:devel/binutils
 RUN_DEPENDS+=	binutils>0:devel/binutils
-EXTRA_CONFIG+=	--with-ld=${LOCALBASE}/toolchain/bin/ld
-EXTRA_CONFIG+=	--with-as=${LOCALBASE}/toolchain/bin/as
+EXTRA_CONFIG+=	--with-ld=/raven/toolchain/bin/ld
+EXTRA_CONFIG+=	--with-as=/raven/toolchain/bin/as
 
 WRKSRC=			${WRKDIR}/${IDENTIFICATION}
 BUILDDIR=		${WRKDIR}/build
@@ -74,6 +74,7 @@ CFG_SCRIPT=		${WRKSRC}/configure
 REVFILE=		${WRKSRC}/gcc/REVISION
 PHASEFILE=		${WRKSRC}/gcc/DEV-PHASE
 BOOTSTRAP_PREFIX=	${WRKDIR}/bootstrap
+PREFIX=			/raven
 PKG_PREFIX=		${PREFIX}/toolchain/gcc6
 MANPREFIX=		${PREFIX}/toolchain/gcc6/share
 BSFILENAME=		ada-bootstrap.${GARCH}.${OPSYS:tl}.${OSREL:S/.//}.tar.bz2
@@ -83,7 +84,7 @@ BSFILENAME=		ada-bootstrap.${GARCH}.${OPSYS:tl}.${OSREL:S/.//}.tar.bz2
 INTENDED_COMPILER=BOOTSTRAP
 FULL_GNATGCC=${BOOTSTRAP_PREFIX}/bin/gcc
 FULL_GNATGXX=${BOOTSTRAP_PREFIX}/bin/g++
-FULL_PATH=${BOOTSTRAP_PREFIX}/bin:/sbin:/bin:/usr/sbin:/usr/bin:${PREFIX}/bin
+FULL_PATH=${BOOTSTRAP_PREFIX}/bin:/sbin:/bin:/usr/sbin:/usr/bin:${LOCALBASE}/bin
 DISTFILES+=	${BOOTSTRAP_COMPILER}:boot
 .endif
 
@@ -134,7 +135,7 @@ EXTRA_CONFIG+=		--with-boot-ldflags=-static
 #  not bootstrapping.  It appears to be an upstream error.  LibCC1 is used
 #  for gdb 7.9 exclusively, so it's not really needed.  Let's disable it
 #  by default, but let people that want it suffer a 3-stage build.
-EXTRA_CONFIG+=		--disable-bootstrap --disable-libcc1
+#EXTRA_CONFIG+=		--disable-bootstrap --disable-libcc1
 .  endif
 USES+=			iconv
 .endif
@@ -155,10 +156,9 @@ ADA_MAKE_ENV+=		PATH=${FULL_PATH}
 ADA_CONFIG_ARGS=	--enable-languages=${LANGS:Q}
 ADA_CONFIG_ARGS+=	--build=${BLD_TARGET}
 ADA_CONFIG_ARGS+=	--prefix=${PKG_PREFIX:Q}
-ADA_CONFIG_ARGS+=	--with-system-zlib
-ADA_CONFIG_ARGS+=	--with-gmp=${PREFIX}
-ADA_CONFIG_ARGS+=	--with-mpfr=${PREFIX}
-ADA_CONFIG_ARGS+=	--with-mpc=${PREFIX}
+ADA_CONFIG_ARGS+=	--with-gmp=${LOCALBASE}
+ADA_CONFIG_ARGS+=	--with-mpfr=${LOCALBASE}
+ADA_CONFIG_ARGS+=	--with-mpc=${LOCALBASE}
 ADA_CONFIG_ARGS+=	${ICONV_CONFIGURE_ARG}
 ADA_CONFIG_ARGS+=	--enable-shared
 ADA_CONFIG_ARGS+=	--enable-threads=posix
@@ -240,6 +240,8 @@ do-install:
 	cd ${BUILDDIR} && ${SETENV} ${ADA_MAKE_ENV} \
 		${MAKE_CMD} install-strip ${MAKE_ARGS}
 	${MV} ${STAGEDIR}${PKG_PREFIX}/share ${WRKDIR}/moved_share
+	cp ${STAGEDIR}${PKG_PREFIX}/bin/gcc ${STAGEDIR}${PKG_PREFIX}/bin/cc
+	cp ${STAGEDIR}${PKG_PREFIX}/bin/g++ ${STAGEDIR}${PKG_PREFIX}/bin/CC
 #	${MKDIR} ${STAGEDIR}${PREFIX}/share/dejagnu/baseboards \
 #		${STAGEDIR}${PREFIX}/share/dejagnu/config
 #	${INSTALL_DATA} ${FILESDIR}/android6.exp \

@@ -87,6 +87,7 @@ Usr_Bin_DragonFly= \
 		/usr/bin/head \
 		/usr/bin/id \
 		/usr/bin/install \
+		/usr/bin/ldd \
 		/usr/bin/mkfifo \
 		/usr/bin/mktemp \
 		/usr/bin/printenv \
@@ -97,7 +98,9 @@ Usr_Bin_DragonFly= \
 		/usr/bin/tr \
 		/usr/bin/tsort \
 		/usr/bin/uniq \
-		/usr/bin/wc 
+		/usr/bin/wc \
+		/usr/bin/which \
+		# end
 
 Usr_Bin_FreeBSD=	${Usr_Bin_DragonFly}
 
@@ -110,7 +113,10 @@ static_lib_FreeBSD=	${static_lib_generic} \
 			/usr/lib/libusbhid.a
 static_lib_DragonFly=	${static_lib_generic} \
 			/usr/lib/libusb.a \
-			/usr/lib/libusbhid.a
+			/usr/lib/libusbhid.a \
+			/usr/lib/crt1.o \
+			/usr/lib/crti.o \
+			/usr/lib/crtn.o
 dynamic_generic=	/lib/${libc} \
 			/lib/${libm} \
 			/lib/${libutil} \
@@ -122,7 +128,6 @@ dynamic_lib_DragonFly=	${dynamic_generic} \
 			/usr/lib/libpthread.so.0 \
 			/usr/lib/${libusb} \
 			/usr/lib/${libusbhid}
-
 posix_headers=		aio.h \
 			arpa/inet.h \
 			assert.h \
@@ -219,6 +224,8 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			usb.h \
 			usbhid.h \
 			db.h \
+			cpu/atomic.h \
+			cpu/types.h \
 			machine/cpumask.h \
 			machine/endian.h \
 			machine/fenv.h \
@@ -227,9 +234,12 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			machine/inttypes.h \
 			machine/limits.h \
 			machine/setjmp.h \
+			machine/signal.h \
 			machine/stdarg.h \
 			machine/stdint.h \
+			machine/trap.h \
 			machine/types.h \
+			machine/ucontext.h \
 			net/if_var.h \
 			netinet6/in6.h \
 			runetype.h \
@@ -256,6 +266,7 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			sys/timespec.h \
 			sys/ttycom.h \
 			sys/ttydefaults.h \
+			sys/ucontext.h \
 			sys/unistd.h \
 			sys/uuid.h \
 			xlocale.h \
@@ -289,6 +300,7 @@ install:
 		${DESTDIR}${BASE}/usr/share \
 		${DESTDIR}${BASE}/usr/local \
 		${DESTDIR}${BASE}/usr/include/arpa \
+		${DESTDIR}${BASE}/usr/include/cpu \
 		${DESTDIR}${BASE}/usr/include/sys \
 		${DESTDIR}${BASE}/usr/include/net \
 		${DESTDIR}${BASE}/usr/include/netinet \
