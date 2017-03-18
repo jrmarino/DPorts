@@ -32,6 +32,8 @@ BUILD_DEPENDS=	nawk>0:lang/nawk \
 		uname>0:sysutils/uname \
 		less>0:sysutils/less \
 		nvi>0:editors/nvi-devel \
+		mtree>0:sysutils/mtree \
+		coreutils>0:sysutils/coreutils \
 		# end
 
 NO_BUILD=	yes

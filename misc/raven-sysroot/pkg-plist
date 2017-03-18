@@ -68,10 +68,12 @@
 %%BASE%%/usr/bin/mkfifo
 %%BASE%%/usr/bin/mktemp
 %%BASE%%/usr/bin/more
+%%BASE%%/usr/bin/mtree
 %%BASE%%/usr/bin/patch
 %%BASE%%/usr/bin/printenv
 %%BASE%%/usr/bin/sdiff
 %%BASE%%/usr/bin/sed
+%%BASE%%/usr/bin/sort
 %%BASE%%/usr/bin/stat
 %%BASE%%/usr/bin/tail
 %%BASE%%/usr/bin/tar

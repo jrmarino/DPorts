@@ -75,6 +75,8 @@ Bin_FreeBSD=	/bin/[ \
 # /usr/bin/xargs  (misc/findutils)
 # /usr/bin/yacc   (devel/byacc)
 # /usr/bin/less*  (sysutils/less)
+# /usr/bin/mtree  (sysutils/mtree)
+# /usr/bin/sort   (sysutils/coreutils)
 
 Usr_Bin_DragonFly= \
 		/usr/bin/basename \
@@ -359,7 +361,7 @@ install:
              xz xzcat xzcmp xzdiff xzegrep xzfgrep xzgrep
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
-.for item in m4 patch sed yacc uname unzip less vi
+.for item in m4 patch sed yacc uname unzip less vi mtree
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
 	cp ${LOCALBASE}/lib/libdl.a ${DESTDIR}${BASE}/usr/lib/
@@ -368,6 +370,7 @@ install:
 	${BSD_INSTALL_DATA} /usr/include/${item} ${DESTDIR}${BASE}/usr/include/${item}
 .endfor
 	cp ${LOCALBASE}/share/misc/terminfo.db.default ${DESTDIR}${BASE}/usr/share/terminfo.db
+	cp ${LOCALBASE}/bin/gsort ${DESTDIR}${BASE}/usr/bin/sort
 
 extra-includes:
 .for item in ${headers_${OPSYS}}
