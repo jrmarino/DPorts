@@ -70,6 +70,7 @@
 %%BASE%%/usr/bin/more
 %%BASE%%/usr/bin/mtree
 %%BASE%%/usr/bin/patch
+%%BASE%%/usr/bin/pkg-static
 %%BASE%%/usr/bin/printenv
 %%BASE%%/usr/bin/sdiff
 %%BASE%%/usr/bin/sed
@@ -208,6 +209,7 @@
 %%BASE%%/usr/share/OSVERSION
 %%BASE%%/usr/share/STDARCH
 %%BASE%%/usr/share/group
+%%BASE%%/usr/share/ld-elf.so.hints
 %%BASE%%/usr/share/master.passwd
 %%BASE%%/usr/share/passwd
 %%BASE%%/usr/share/pwd.db

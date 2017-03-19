@@ -79,6 +79,13 @@ post-install:
 	cp ${FILESDIR}/master.passwd.${OPSYS:tl} ${STAGEDIR}${RSYS}/usr/share/master.passwd
 	/usr/sbin/pwd_mkdb -p -d ${STAGEDIR}${RSYS}/usr/share ${STAGEDIR}${RSYS}/usr/share/master.passwd 
 	cp ${FILESDIR}/rc.conf.${OPSYS:tl} ${STAGEDIR}${RSYS}/usr/share/rc.conf
+	# handle ldconfig hints
+	cp /sbin/ldconfig ${STAGEDIR}${RSYS}/usr/bin/ldconfig
+	${MKDIR} ${STAGEDIR}${RSYS}/var/run
+	chroot ${STAGEDIR}${RSYS} /usr/bin/ldconfig /usr/lib
+	${RM} ${STAGEDIR}${RSYS}/usr/bin/ldconfig
+	${MV} ${STAGEDIR}${RSYS}/var/run/ld-elf.so.hints ${STAGEDIR}${RSYS}/usr/share/
+	${RM} -r ${STAGEDIR}${RSYS}/var
 	# change for FreeBSD
 	echo "${.MAKE.DF.OSREL}"   > ${STAGEDIR}${RSYS}/usr/share/OSRELEASE
 	echo "${.MAKE.DF.OSREL}"   > ${STAGEDIR}${RSYS}/usr/share/OSMAJOR

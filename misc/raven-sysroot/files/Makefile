@@ -77,6 +77,7 @@ Bin_FreeBSD=	/bin/[ \
 # /usr/bin/less*  (sysutils/less)
 # /usr/bin/mtree  (sysutils/mtree)
 # /usr/bin/sort   (sysutils/coreutils)
+# /usr/bin/pkg-static (ports-mgmt/pkg)
 
 Usr_Bin_DragonFly= \
 		/usr/bin/basename \
@@ -371,6 +372,7 @@ install:
 .endfor
 	cp ${LOCALBASE}/share/misc/terminfo.db.default ${DESTDIR}${BASE}/usr/share/terminfo.db
 	cp ${LOCALBASE}/bin/gsort ${DESTDIR}${BASE}/usr/bin/sort
+	cp ${LOCALBASE}/sbin/pkg-static ${DESTDIR}${BASE}/usr/bin/
 
 extra-includes:
 .for item in ${headers_${OPSYS}}
