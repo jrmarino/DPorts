@@ -94,6 +94,7 @@ Usr_Bin_DragonFly= \
 		/usr/bin/mkfifo \
 		/usr/bin/mktemp \
 		/usr/bin/printenv \
+		/usr/bin/readlink \
 		/usr/bin/stat \
 		/usr/bin/tail \
 		/usr/bin/tee \
@@ -350,7 +351,6 @@ install:
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
 	cp ${LOCALBASE}/bin/bmake   ${DESTDIR}${BASE}/usr/bin/make
-	cp ${LOCALBASE}/bin/bsdcat  ${DESTDIR}${BASE}/bin/cat
 	cp ${LOCALBASE}/bin/bsdcpio ${DESTDIR}${BASE}/usr/bin/cpio
 	cp ${LOCALBASE}/bin/bsdtar  ${DESTDIR}${BASE}/usr/bin/tar
 	cp ${LOCALBASE}/bin/md5     ${DESTDIR}${BASE}/bin/
@@ -362,7 +362,7 @@ install:
              xz xzcat xzcmp xzdiff xzegrep xzfgrep xzgrep
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
-.for item in m4 patch sed yacc uname unzip less vi mtree
+.for item in m4 patch sed yacc uname unzip less vi mtree bsdcat
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
 	cp ${LOCALBASE}/lib/libdl.a ${DESTDIR}${BASE}/usr/lib/
@@ -372,6 +372,7 @@ install:
 .endfor
 	cp ${LOCALBASE}/share/misc/terminfo.db.default ${DESTDIR}${BASE}/usr/share/terminfo.db
 	cp ${LOCALBASE}/bin/gsort ${DESTDIR}${BASE}/usr/bin/sort
+	cp ${LOCALBASE}/bin/gcat  ${DESTDIR}${BASE}/bin/cat
 	cp ${LOCALBASE}/sbin/pkg-static ${DESTDIR}${BASE}/usr/bin/
 
 extra-includes:

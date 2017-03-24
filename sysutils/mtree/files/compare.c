@@ -41,8 +41,8 @@
 #include <md5.h>
 #endif
 #ifdef USE_SHA1
-#include <sha.h>
-#include "../../sbin/md5/sha1hl.h"
+#include "sha.h"
+#include "sha1hl.h"
 #endif
 #ifdef USE_RMD160
 #include <ripemd.h>

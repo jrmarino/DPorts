@@ -26,6 +26,7 @@
 %%BASE%%/usr/bin/awk
 %%BASE%%/usr/bin/basename
 %%BASE%%/usr/bin/bunzip2
+%%BASE%%/usr/bin/bsdcat
 %%BASE%%/usr/bin/bzcat
 %%BASE%%/usr/bin/bzegrep
 %%BASE%%/usr/bin/bzfgrep
@@ -72,6 +73,7 @@
 %%BASE%%/usr/bin/patch
 %%BASE%%/usr/bin/pkg-static
 %%BASE%%/usr/bin/printenv
+%%BASE%%/usr/bin/readlink
 %%BASE%%/usr/bin/sdiff
 %%BASE%%/usr/bin/sed
 %%BASE%%/usr/bin/sort

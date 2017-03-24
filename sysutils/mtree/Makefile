@@ -12,7 +12,9 @@ COMMENT=	NetBSD mtree (from FreebSD)
 
 LICENSE=	BSD2CLAUSE
 
+BUILD_DEPENDS=	libressl>0:security/libressl
 PLIST_FILES=	bin/mtree
+CFLAGS=		-DUSE_SHA1 -I${LOCALBASE}/include
 
 do-extract:
 	${MKDIR} ${WRKSRC}

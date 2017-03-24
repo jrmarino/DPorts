@@ -41,8 +41,9 @@
 #ifdef MD5
 #include <md5.h>
 #endif
-#ifdef SHA1
-#include <sha.h>
+#ifdef USE_SHA1
+#include "sha.h"
+#include "sha1hl.h"
 #endif
 #ifdef RMD160
 #include <ripemd.h>
@@ -214,7 +215,7 @@ statf(int indent, FTSENT *p)
 		}
 	}
 #endif /* MD5 */
-#ifdef SHA1
+#ifdef USE_SHA1
 	if (keys & F_SHA1 && S_ISREG(p->fts_statp->st_mode)) {
 		char *digest, buf[41];
 

@@ -65,7 +65,7 @@ static KEY keylist[] = {
 #ifdef RMD160
 	{"ripemd160digest", F_RMD160,	NEEDVALUE},
 #endif
-#ifdef SHA1
+#ifdef USE_SHA1
 	{"sha1digest",	F_SHA1,		NEEDVALUE},
 #endif
 	{"size",	F_SIZE,		NEEDVALUE},
