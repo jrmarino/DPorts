@@ -227,6 +227,7 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			pthread_np.h \
 			usb.h \
 			usbhid.h \
+			ar.h \
 			db.h \
 			cpu/atomic.h \
 			cpu/types.h \
@@ -347,7 +348,7 @@ install:
 .for item in bzip2 bunzip2 bzcat bzgrep bzegrep bzfgrep 
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
-.for item in cmp diff diff3 sdiff egrep fgrep grep fetch find file xargs
+.for item in cmp diff diff3 sdiff grep fetch find file xargs
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
 	cp ${LOCALBASE}/bin/bmake   ${DESTDIR}${BASE}/usr/bin/make
@@ -374,6 +375,9 @@ install:
 	cp ${LOCALBASE}/bin/gsort ${DESTDIR}${BASE}/usr/bin/sort
 	cp ${LOCALBASE}/bin/gcat  ${DESTDIR}${BASE}/bin/cat
 	cp ${LOCALBASE}/sbin/pkg-static ${DESTDIR}${BASE}/usr/bin/
+	sed -e 's|/usr/local|/usr|g' ${LOCALBASE}/bin/egrep > ${DESTDIR}${BASE}/usr/bin/egrep
+	sed -e 's|/usr/local|/usr|g' ${LOCALBASE}/bin/fgrep > ${DESTDIR}${BASE}/usr/bin/fgrep
+	chmod 755 ${DESTDIR}${BASE}/usr/bin/egrep ${DESTDIR}${BASE}/usr/bin/fgrep
 
 extra-includes:
 .for item in ${headers_${OPSYS}}

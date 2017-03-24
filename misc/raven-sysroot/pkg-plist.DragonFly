@@ -2,6 +2,7 @@
 %%BASE%%/usr/lib/crt1.o
 %%BASE%%/usr/lib/crti.o
 %%BASE%%/usr/lib/crtn.o
+%%BASE%%/usr/include/ar.h
 %%BASE%%/usr/include/db.h
 %%BASE%%/usr/include/cpu/atomic.h
 %%BASE%%/usr/include/cpu/types.h
