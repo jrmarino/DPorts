@@ -229,6 +229,7 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			usbhid.h \
 			ar.h \
 			db.h \
+			err.h \
 			cpu/atomic.h \
 			cpu/types.h \
 			machine/cpumask.h \

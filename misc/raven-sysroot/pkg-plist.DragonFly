@@ -4,6 +4,7 @@
 %%BASE%%/usr/lib/crtn.o
 %%BASE%%/usr/include/ar.h
 %%BASE%%/usr/include/db.h
+%%BASE%%/usr/include/err.h
 %%BASE%%/usr/include/cpu/atomic.h
 %%BASE%%/usr/include/cpu/types.h
 %%BASE%%/usr/include/machine/cpumask.h
