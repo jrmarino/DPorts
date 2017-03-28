@@ -210,6 +210,7 @@
 %%BASE%%/usr/share/OSRELEASE
 %%BASE%%/usr/share/OSVERSION
 %%BASE%%/usr/share/STDARCH
+%%BASE%%/usr/share/file/magic.mgc
 %%BASE%%/usr/share/group
 %%BASE%%/usr/share/ld-elf.so.hints
 %%BASE%%/usr/share/master.passwd

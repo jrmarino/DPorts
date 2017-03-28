@@ -230,7 +230,9 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			ar.h \
 			db.h \
 			err.h \
+			getopt.h \
 			cpu/atomic.h \
+			cpu/param.h \
 			cpu/types.h \
 			machine/cpumask.h \
 			machine/endian.h \
@@ -239,6 +241,7 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			machine/int_limits.h \
 			machine/inttypes.h \
 			machine/limits.h \
+			machine/param.h \
 			machine/setjmp.h \
 			machine/signal.h \
 			machine/stdarg.h \
@@ -258,7 +261,11 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			sys/cdefs.h \
 			sys/dirent.h \
 			sys/fd_set.h \
+			sys/fcntl.h \
 			sys/file.h \
+			sys/filio.h \
+			sys/ioccom.h \
+			sys/ioctl.h \
 			sys/libkern.h \
 			sys/limits.h \
 			sys/lock.h \
@@ -267,8 +274,10 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			sys/param.h \
 			sys/sched.h \
 			sys/signal.h \
+			sys/sockio.h \
 			sys/stdint.h \
 			sys/syslimits.h \
+			sys/timeb.h \
 			sys/timespec.h \
 			sys/ttycom.h \
 			sys/ttydefaults.h \
@@ -303,7 +312,7 @@ install:
 		${DESTDIR}${BASE}/usr/bin \
 		${DESTDIR}${BASE}/usr/include \
 		${DESTDIR}${BASE}/usr/lib/pkgconfig \
-		${DESTDIR}${BASE}/usr/share \
+		${DESTDIR}${BASE}/usr/share/file \
 		${DESTDIR}${BASE}/usr/local \
 		${DESTDIR}${BASE}/usr/include/arpa \
 		${DESTDIR}${BASE}/usr/include/cpu \
@@ -376,6 +385,7 @@ install:
 	cp ${LOCALBASE}/bin/gsort ${DESTDIR}${BASE}/usr/bin/sort
 	cp ${LOCALBASE}/bin/gcat  ${DESTDIR}${BASE}/bin/cat
 	cp ${LOCALBASE}/sbin/pkg-static ${DESTDIR}${BASE}/usr/bin/
+	cp ${LOCALBASE}/share/file/magic.mgc ${DESTDIR}${BASE}/usr/share/file/
 	sed -e 's|/usr/local|/usr|g' ${LOCALBASE}/bin/egrep > ${DESTDIR}${BASE}/usr/bin/egrep
 	sed -e 's|/usr/local|/usr|g' ${LOCALBASE}/bin/fgrep > ${DESTDIR}${BASE}/usr/bin/fgrep
 	chmod 755 ${DESTDIR}${BASE}/usr/bin/egrep ${DESTDIR}${BASE}/usr/bin/fgrep
