@@ -39,7 +39,7 @@ post-patch:	.SILENT
 
 do-build:
 	${SETENV} ${MAKE_ENV} ${SH} ${WRKDIR}/bmake/boot-strap \
-		--with-default-sys-path='.../share/mk:${PREFIX}/share/mk' \
+		--with-default-sys-path='.../share/mk:/xports/Mk:${PREFIX}/share/mk' \
 		-m ${WRKDIR}/mk objdir=${WRKDIR}/obj prefix=${PREFIX}
 
 do-install:

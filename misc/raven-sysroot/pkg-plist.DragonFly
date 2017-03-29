@@ -3,9 +3,13 @@
 %%BASE%%/usr/lib/crti.o
 %%BASE%%/usr/lib/crtn.o
 %%BASE%%/usr/include/ar.h
+%%BASE%%/usr/include/arpa/nameser.h
 %%BASE%%/usr/include/db.h
 %%BASE%%/usr/include/err.h
 %%BASE%%/usr/include/getopt.h
+%%BASE%%/usr/include/memory.h
+%%BASE%%/usr/include/resolv.h
+%%BASE%%/usr/include/util.h
 %%BASE%%/usr/include/cpu/atomic.h
 %%BASE%%/usr/include/cpu/param.h
 %%BASE%%/usr/include/cpu/types.h
@@ -25,6 +29,8 @@
 %%BASE%%/usr/include/machine/types.h
 %%BASE%%/usr/include/machine/ucontext.h
 %%BASE%%/usr/include/net/if_var.h
+%%BASE%%/usr/include/netinet/ip.h
+%%BASE%%/usr/include/netinet/in_systm.h
 %%BASE%%/usr/include/netinet6/in6.h
 %%BASE%%/usr/include/runetype.h
 %%BASE%%/usr/include/sys/_iovec.h
@@ -69,6 +75,9 @@
 %%BASE%%/usr/include/xlocale/_strings.h
 %%BASE%%/usr/include/xlocale/_time.h
 %%BASE%%/usr/include/xlocale/_wchar.h
+%%BASE%%/usr/include/xlocale/_inttypes.h
+%%BASE%%/usr/include/xlocale/_stdio.h
+%%BASE%%/usr/include/xlocale/_uchar.h
 %%BASE%%/usr/lib/libusb.a
 %%BASE%%/usr/lib/libusb.so
 %%BASE%%/usr/lib/%%SONAME_LIBUSB%%

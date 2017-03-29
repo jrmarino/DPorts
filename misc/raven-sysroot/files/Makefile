@@ -228,9 +228,13 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			usb.h \
 			usbhid.h \
 			ar.h \
+			arpa/nameser.h \
 			db.h \
 			err.h \
 			getopt.h \
+			memory.h \
+			resolv.h \
+			util.h \
 			cpu/atomic.h \
 			cpu/param.h \
 			cpu/types.h \
@@ -250,6 +254,8 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			machine/types.h \
 			machine/ucontext.h \
 			net/if_var.h \
+			netinet/in_systm.h \
+			netinet/ip.h \
 			netinet6/in6.h \
 			runetype.h \
 			sys/_iovec.h \
@@ -286,14 +292,17 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			sys/uuid.h \
 			xlocale.h \
 			xlocale/_ctype.h \
+			xlocale/_inttypes.h \
 			xlocale/_langinfo.h \
 			xlocale/_locale.h \
 			xlocale/_monetary.h \
 			xlocale/_stdlib.h \
+			xlocale/_stdio.h \
 			xlocale/_string.h \
 			xlocale/_strings.h \
 			xlocale/_time.h \
 			xlocale/_wchar.h \
+			xlocale/_uchar.h \
 			# end
 
 pcfiles_FreeBSD=	\
