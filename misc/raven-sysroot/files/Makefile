@@ -228,7 +228,11 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			usb.h \
 			usbhid.h \
 			ar.h \
+			arpa/ftp.h \
 			arpa/nameser.h \
+			arpa/nameser_compat.h \
+			arpa/telnet.h \
+			arpa/tftp.h \
 			db.h \
 			err.h \
 			getopt.h \
