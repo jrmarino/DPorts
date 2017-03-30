@@ -14,6 +14,7 @@ Bin_DragonFly=	/bin/[ \
 		/bin/chmod \
 		/bin/cp \
 		/bin/date \
+		/bin/echo \
 		/bin/expr \
 		/bin/hostname \
 		/bin/kill \
@@ -36,6 +37,7 @@ Bin_FreeBSD=	/bin/[ \
 		/bin/chmod \
 		/bin/cp \
 		/bin/date \
+		/bin/echo \
 		/bin/expr \
 		/bin/hostname \
 		/bin/kill \
@@ -235,11 +237,14 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			arpa/tftp.h \
 			db.h \
 			err.h \
+			fts.h \
 			getopt.h \
 			memory.h \
 			resolv.h \
 			util.h \
+			vis.h \
 			cpu/atomic.h \
+			cpu/endian.h \
 			cpu/param.h \
 			cpu/types.h \
 			machine/cpumask.h \
@@ -262,6 +267,7 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			netinet/ip.h \
 			netinet6/in6.h \
 			runetype.h \
+			sysexits.h \
 			sys/_iovec.h \
 			sys/_null.h \
 			sys/_pthreadtypes.h \
@@ -270,6 +276,7 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			sys/_timeval.h \
 			sys/cdefs.h \
 			sys/dirent.h \
+			sys/endian.h \
 			sys/fd_set.h \
 			sys/fcntl.h \
 			sys/file.h \
@@ -280,8 +287,10 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			sys/limits.h \
 			sys/lock.h \
 			sys/malloc.h \
+			sys/md5.h \
 			sys/mqueue.h \
 			sys/param.h \
+			sys/queue.h \
 			sys/sched.h \
 			sys/signal.h \
 			sys/sockio.h \
@@ -294,6 +303,7 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			sys/ucontext.h \
 			sys/unistd.h \
 			sys/uuid.h \
+			ttyent.h \
 			xlocale.h \
 			xlocale/_ctype.h \
 			xlocale/_inttypes.h \

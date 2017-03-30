@@ -4,6 +4,7 @@
 %%BASE%%/bin/chmod
 %%BASE%%/bin/cp
 %%BASE%%/bin/date
+%%BASE%%/bin/echo
 %%BASE%%/bin/expr
 %%BASE%%/bin/hostname
 %%BASE%%/bin/kill
@@ -219,6 +220,8 @@
 %%BASE%%/usr/share/spwd.db
 %%BASE%%/usr/share/terminfo.db
 %%BASE%%/usr/share/rc.conf
+%%BASE%%/usr/share/termcap
+%%BASE%%/usr/share/termcap.db
 @dir %%BASE%%/usr/include/arpa
 @dir %%BASE%%/usr/include/machine
 @dir %%BASE%%/usr/include/net

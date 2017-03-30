@@ -86,6 +86,10 @@ post-install:
 	${RM} ${STAGEDIR}${RSYS}/usr/bin/ldconfig
 	${MV} ${STAGEDIR}${RSYS}/var/run/ld-elf.so.hints ${STAGEDIR}${RSYS}/usr/share/
 	${RM} -r ${STAGEDIR}${RSYS}/var
+	# create termcap.db
+	cp ${FILESDIR}/termcap.src ${STAGEDIR}${RSYS}/usr/share/termcap
+	(cd ${STAGEDIR}${RSYS}/usr/share && /usr/bin/cap_mkdb -f termcap ./termcap)
+
 	# change for FreeBSD
 	echo "${.MAKE.DF.OSREL}"   > ${STAGEDIR}${RSYS}/usr/share/OSRELEASE
 	echo "${.MAKE.DF.OSREL}"   > ${STAGEDIR}${RSYS}/usr/share/OSMAJOR

@@ -10,11 +10,14 @@
 %%BASE%%/usr/include/arpa/tftp.h
 %%BASE%%/usr/include/db.h
 %%BASE%%/usr/include/err.h
+%%BASE%%/usr/include/fts.h
 %%BASE%%/usr/include/getopt.h
 %%BASE%%/usr/include/memory.h
 %%BASE%%/usr/include/resolv.h
 %%BASE%%/usr/include/util.h
+%%BASE%%/usr/include/vis.h
 %%BASE%%/usr/include/cpu/atomic.h
+%%BASE%%/usr/include/cpu/endian.h
 %%BASE%%/usr/include/cpu/param.h
 %%BASE%%/usr/include/cpu/types.h
 %%BASE%%/usr/include/machine/cpumask.h
@@ -37,6 +40,7 @@
 %%BASE%%/usr/include/netinet/in_systm.h
 %%BASE%%/usr/include/netinet6/in6.h
 %%BASE%%/usr/include/runetype.h
+%%BASE%%/usr/include/sysexits.h
 %%BASE%%/usr/include/sys/_iovec.h
 %%BASE%%/usr/include/sys/_null.h
 %%BASE%%/usr/include/sys/_pthreadtypes.h
@@ -44,6 +48,7 @@
 %%BASE%%/usr/include/sys/_timespec.h
 %%BASE%%/usr/include/sys/_timeval.h
 %%BASE%%/usr/include/sys/cdefs.h
+%%BASE%%/usr/include/sys/endian.h
 %%BASE%%/usr/include/sys/dirent.h
 %%BASE%%/usr/include/sys/fcntl.h
 %%BASE%%/usr/include/sys/fd_set.h
@@ -55,8 +60,10 @@
 %%BASE%%/usr/include/sys/limits.h
 %%BASE%%/usr/include/sys/lock.h
 %%BASE%%/usr/include/sys/malloc.h
+%%BASE%%/usr/include/sys/md5.h
 %%BASE%%/usr/include/sys/mqueue.h
 %%BASE%%/usr/include/sys/param.h
+%%BASE%%/usr/include/sys/queue.h
 %%BASE%%/usr/include/sys/sched.h
 %%BASE%%/usr/include/sys/signal.h
 %%BASE%%/usr/include/sys/sockio.h
@@ -69,6 +76,7 @@
 %%BASE%%/usr/include/sys/ucontext.h
 %%BASE%%/usr/include/sys/unistd.h
 %%BASE%%/usr/include/sys/uuid.h
+%%BASE%%/usr/include/ttyent.h
 %%BASE%%/usr/include/xlocale.h
 %%BASE%%/usr/include/xlocale/_ctype.h
 %%BASE%%/usr/include/xlocale/_langinfo.h
