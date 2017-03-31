@@ -49,6 +49,7 @@
 %%BASE%%/usr/include/sys/_timeval.h
 %%BASE%%/usr/include/sys/cdefs.h
 %%BASE%%/usr/include/sys/endian.h
+%%BASE%%/usr/include/sys/errno.h
 %%BASE%%/usr/include/sys/dirent.h
 %%BASE%%/usr/include/sys/fcntl.h
 %%BASE%%/usr/include/sys/fd_set.h
@@ -60,6 +61,7 @@
 %%BASE%%/usr/include/sys/limits.h
 %%BASE%%/usr/include/sys/lock.h
 %%BASE%%/usr/include/sys/malloc.h
+%%BASE%%/usr/include/sys/mount.h
 %%BASE%%/usr/include/sys/md5.h
 %%BASE%%/usr/include/sys/mqueue.h
 %%BASE%%/usr/include/sys/param.h
@@ -67,13 +69,16 @@
 %%BASE%%/usr/include/sys/sched.h
 %%BASE%%/usr/include/sys/signal.h
 %%BASE%%/usr/include/sys/sockio.h
+%%BASE%%/usr/include/sys/spinlock.h
 %%BASE%%/usr/include/sys/stdint.h
 %%BASE%%/usr/include/sys/syslimits.h
 %%BASE%%/usr/include/sys/timeb.h
 %%BASE%%/usr/include/sys/timespec.h
+%%BASE%%/usr/include/sys/tree.h
 %%BASE%%/usr/include/sys/ttycom.h
 %%BASE%%/usr/include/sys/ttydefaults.h
 %%BASE%%/usr/include/sys/ucontext.h
+%%BASE%%/usr/include/sys/ucred.h
 %%BASE%%/usr/include/sys/unistd.h
 %%BASE%%/usr/include/sys/uuid.h
 %%BASE%%/usr/include/ttyent.h

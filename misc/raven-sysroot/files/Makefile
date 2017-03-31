@@ -277,6 +277,7 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			sys/cdefs.h \
 			sys/dirent.h \
 			sys/endian.h \
+			sys/errno.h \
 			sys/fd_set.h \
 			sys/fcntl.h \
 			sys/file.h \
@@ -288,18 +289,22 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			sys/lock.h \
 			sys/malloc.h \
 			sys/md5.h \
+			sys/mount.h \
 			sys/mqueue.h \
 			sys/param.h \
 			sys/queue.h \
 			sys/sched.h \
 			sys/signal.h \
 			sys/sockio.h \
+			sys/spinlock.h \
 			sys/stdint.h \
 			sys/syslimits.h \
 			sys/timeb.h \
 			sys/timespec.h \
+			sys/tree.h \
 			sys/ttycom.h \
 			sys/ttydefaults.h \
+			sys/ucred.h \
 			sys/ucontext.h \
 			sys/unistd.h \
 			sys/uuid.h \
