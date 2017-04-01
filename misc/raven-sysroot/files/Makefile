@@ -243,71 +243,13 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			resolv.h \
 			util.h \
 			vis.h \
-			cpu/atomic.h \
-			cpu/endian.h \
-			cpu/param.h \
-			cpu/types.h \
-			machine/cpumask.h \
-			machine/endian.h \
-			machine/fenv.h \
-			machine/int_const.h \
-			machine/int_limits.h \
-			machine/inttypes.h \
-			machine/limits.h \
-			machine/param.h \
-			machine/setjmp.h \
-			machine/signal.h \
-			machine/stdarg.h \
-			machine/stdint.h \
-			machine/trap.h \
-			machine/types.h \
-			machine/ucontext.h \
 			net/if_var.h \
 			netinet/in_systm.h \
 			netinet/ip.h \
 			netinet6/in6.h \
+			readpassphrase.h \
 			runetype.h \
 			sysexits.h \
-			sys/_iovec.h \
-			sys/_null.h \
-			sys/_pthreadtypes.h \
-			sys/_termios.h \
-			sys/_timespec.h \
-			sys/_timeval.h \
-			sys/cdefs.h \
-			sys/dirent.h \
-			sys/endian.h \
-			sys/errno.h \
-			sys/fd_set.h \
-			sys/fcntl.h \
-			sys/file.h \
-			sys/filio.h \
-			sys/ioccom.h \
-			sys/ioctl.h \
-			sys/libkern.h \
-			sys/limits.h \
-			sys/lock.h \
-			sys/malloc.h \
-			sys/md5.h \
-			sys/mount.h \
-			sys/mqueue.h \
-			sys/param.h \
-			sys/queue.h \
-			sys/sched.h \
-			sys/signal.h \
-			sys/sockio.h \
-			sys/spinlock.h \
-			sys/stdint.h \
-			sys/syslimits.h \
-			sys/timeb.h \
-			sys/timespec.h \
-			sys/tree.h \
-			sys/ttycom.h \
-			sys/ttydefaults.h \
-			sys/ucred.h \
-			sys/ucontext.h \
-			sys/unistd.h \
-			sys/uuid.h \
 			ttyent.h \
 			xlocale.h \
 			xlocale/_ctype.h \
@@ -409,6 +351,10 @@ install:
 .for item in ${headers_${OPSYS}}
 	${BSD_INSTALL_DATA} /usr/include/${item} ${DESTDIR}${BASE}/usr/include/${item}
 .endfor
+	${BSD_INSTALL_DATA} /usr/include/cpu/*.h ${DESTDIR}${BASE}/usr/include/cpu/
+	${BSD_INSTALL_DATA} /usr/include/machine/*.h ${DESTDIR}${BASE}/usr/include/machine/
+	${BSD_INSTALL_DATA} /usr/include/sys/*.h ${DESTDIR}${BASE}/usr/include/sys/
+
 	cp ${LOCALBASE}/share/misc/terminfo.db.default ${DESTDIR}${BASE}/usr/share/terminfo.db
 	cp ${LOCALBASE}/bin/gsort ${DESTDIR}${BASE}/usr/bin/sort
 	cp ${LOCALBASE}/bin/gcat  ${DESTDIR}${BASE}/bin/cat
@@ -422,3 +368,4 @@ extra-includes:
 .for item in ${headers_${OPSYS}}
 	@fgrep "#include" /usr/include/${item} || true
 .endfor
+
