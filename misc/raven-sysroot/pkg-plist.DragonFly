@@ -132,6 +132,8 @@
 %%BASE%%/usr/include/netinet/in_systm.h
 %%BASE%%/usr/include/netinet/ip.h
 %%BASE%%/usr/include/netinet6/in6.h
+%%BASE%%/usr/include/osreldate.h
+%%BASE%%/usr/include/paths.h
 %%BASE%%/usr/include/readpassphrase.h
 %%BASE%%/usr/include/resolv.h
 %%BASE%%/usr/include/runetype.h

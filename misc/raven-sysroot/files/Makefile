@@ -240,6 +240,8 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			fts.h \
 			getopt.h \
 			memory.h \
+			osreldate.h \
+			paths.h \
 			resolv.h \
 			util.h \
 			vis.h \
