@@ -89,6 +89,7 @@ Usr_Bin_DragonFly= \
 		/usr/bin/cut \
 		/usr/bin/dirname \
 		/usr/bin/env \
+		/usr/bin/false \
 		/usr/bin/head \
 		/usr/bin/id \
 		/usr/bin/install \
@@ -102,6 +103,7 @@ Usr_Bin_DragonFly= \
 		/usr/bin/tee \
 		/usr/bin/touch \
 		/usr/bin/tr \
+		/usr/bin/true \
 		/usr/bin/tsort \
 		/usr/bin/uniq \
 		/usr/bin/wc \
@@ -237,6 +239,7 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			arpa/tftp.h \
 			db.h \
 			err.h \
+			floatingpoint.h \
 			fts.h \
 			getopt.h \
 			memory.h \
@@ -327,7 +330,7 @@ install:
 	${BSD_INSTALL_DATA} /usr/libdata/pkgconfig/${item} ${DESTDIR}${BASE}/usr/lib/pkgconfig/
 .endfor
 
-.for item in bzip2 bunzip2 bzcat bzgrep bzegrep bzfgrep 
+.for item in bzip2 bunzip2 bzcat bzgrep bzegrep bzfgrep
 	cp ${LOCALBASE}/bin/${item} ${DESTDIR}${BASE}/usr/bin/
 .endfor
 .for item in cmp diff diff3 sdiff grep fetch find file xargs

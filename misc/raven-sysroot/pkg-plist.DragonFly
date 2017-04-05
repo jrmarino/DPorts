@@ -48,6 +48,7 @@
 %%BASE%%/usr/include/cpu/vframe.h
 %%BASE%%/usr/include/db.h
 %%BASE%%/usr/include/err.h
+%%BASE%%/usr/include/floatingpoint.h
 %%BASE%%/usr/include/fts.h
 %%BASE%%/usr/include/getopt.h
 %%BASE%%/usr/include/machine/acpica_machdep.h

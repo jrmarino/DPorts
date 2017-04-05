@@ -21,6 +21,7 @@ GNU_CONFIGURE=	yes
 CONFIGURE_ARGS+=--enable-fsect-man5
 CONFIGURE_ARGS+=	--enable-shared=no
 MAKE_ENV+=	INSTALL_STRIP_FLAG="${STRIP}"
+CONFIGURE_ARGS+=	--datarootdir=/usr/share
 
 CONFLICTS=	tct-[0-9]*
 
@@ -30,5 +31,9 @@ check regression-test test: build
 post-patch:
 	@${REINPLACE_CMD} -e 's|$$(datadir)/misc|$$(datadir)/${PORTNAME}|g' \
 		${WRKSRC}/configure
+
+post-install:
+	${MV} ${STAGEDIR}/usr/share/file ${STAGEDIR}${PREFIX}/share/
+	${RMDIR} ${STAGEDIR}/usr/share
 
 .include <bsd.port.mk>

@@ -44,6 +44,7 @@
 %%BASE%%/usr/bin/dirname
 %%BASE%%/usr/bin/egrep
 %%BASE%%/usr/bin/env
+%%BASE%%/usr/bin/false
 %%BASE%%/usr/bin/fetch
 %%BASE%%/usr/bin/fgrep
 %%BASE%%/usr/bin/file
@@ -84,6 +85,7 @@
 %%BASE%%/usr/bin/tee
 %%BASE%%/usr/bin/touch
 %%BASE%%/usr/bin/tr
+%%BASE%%/usr/bin/true
 %%BASE%%/usr/bin/tsort
 %%BASE%%/usr/bin/uname
 %%BASE%%/usr/bin/uniq
