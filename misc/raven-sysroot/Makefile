@@ -34,6 +34,7 @@ BUILD_DEPENDS=	nawk>0:lang/nawk \
 		nvi>0:editors/nvi-devel \
 		mtree>0:sysutils/mtree \
 		coreutils>0:sysutils/coreutils \
+		binutils>0:devel/binutils \
 		# end
 
 NO_BUILD=	yes
@@ -89,7 +90,13 @@ post-install:
 	# create termcap.db
 	cp ${FILESDIR}/termcap.src ${STAGEDIR}${RSYS}/usr/share/termcap
 	(cd ${STAGEDIR}${RSYS}/usr/share && /usr/bin/cap_mkdb -f termcap ./termcap)
-
+	
+	# archive compiler packages
+	${MKDIR} ${STAGEDIR}${RSYS}/usr/share/compiler-packages
+.for pkg in ada_run compilers complete cxx_run fortran_run infopages libs
+	cp /packages/gcc6-${pkg}-standard-6.20170202.txz \
+		${STAGEDIR}${RSYS}/usr/share/compiler-packages
+.endfor
 	# change for FreeBSD
 	echo "${.MAKE.DF.OSREL}"   > ${STAGEDIR}${RSYS}/usr/share/OSRELEASE
 	echo "${.MAKE.DF.OSREL}"   > ${STAGEDIR}${RSYS}/usr/share/OSMAJOR

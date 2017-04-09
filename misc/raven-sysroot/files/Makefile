@@ -80,6 +80,7 @@ Bin_FreeBSD=	/bin/[ \
 # /usr/bin/mtree  (sysutils/mtree)
 # /usr/bin/sort   (sysutils/coreutils)
 # /usr/bin/pkg-static (ports-mgmt/pkg)
+# /usr/bin/objdump-sysroot (devel/binutils)
 
 Usr_Bin_DragonFly= \
 		/usr/bin/basename \
@@ -238,10 +239,12 @@ headers_DragonFly=	${posix_headers:Nstropts.h:Ntrace.h} \
 			arpa/telnet.h \
 			arpa/tftp.h \
 			db.h \
+			elf.h \
 			err.h \
 			floatingpoint.h \
 			fts.h \
 			getopt.h \
+			link.h \
 			memory.h \
 			osreldate.h \
 			paths.h \
@@ -365,6 +368,7 @@ install:
 	cp ${LOCALBASE}/bin/gcat  ${DESTDIR}${BASE}/bin/cat
 	cp ${LOCALBASE}/sbin/pkg-static ${DESTDIR}${BASE}/usr/bin/
 	cp ${LOCALBASE}/share/file/magic.mgc ${DESTDIR}${BASE}/usr/share/file/
+	cp /raven/toolchain/bin/objdump ${DESTDIR}${BASE}/usr/bin/objdump-sysroot
 	sed -e 's|/usr/local|/usr|g' ${LOCALBASE}/bin/egrep > ${DESTDIR}${BASE}/usr/bin/egrep
 	sed -e 's|/usr/local|/usr|g' ${LOCALBASE}/bin/fgrep > ${DESTDIR}${BASE}/usr/bin/fgrep
 	chmod 755 ${DESTDIR}${BASE}/usr/bin/egrep ${DESTDIR}${BASE}/usr/bin/fgrep

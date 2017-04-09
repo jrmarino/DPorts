@@ -72,6 +72,7 @@
 %%BASE%%/usr/bin/mktemp
 %%BASE%%/usr/bin/more
 %%BASE%%/usr/bin/mtree
+%%BASE%%/usr/bin/objdump-sysroot
 %%BASE%%/usr/bin/patch
 %%BASE%%/usr/bin/pkg-static
 %%BASE%%/usr/bin/printenv
@@ -224,6 +225,13 @@
 %%BASE%%/usr/share/rc.conf
 %%BASE%%/usr/share/termcap
 %%BASE%%/usr/share/termcap.db
+%%BASE%%/usr/share/compiler-packages/gcc6-ada_run-standard-6.20170202.txz
+%%BASE%%/usr/share/compiler-packages/gcc6-compilers-standard-6.20170202.txz
+%%BASE%%/usr/share/compiler-packages/gcc6-complete-standard-6.20170202.txz
+%%BASE%%/usr/share/compiler-packages/gcc6-cxx_run-standard-6.20170202.txz
+%%BASE%%/usr/share/compiler-packages/gcc6-fortran_run-standard-6.20170202.txz
+%%BASE%%/usr/share/compiler-packages/gcc6-infopages-standard-6.20170202.txz
+%%BASE%%/usr/share/compiler-packages/gcc6-libs-standard-6.20170202.txz
 @dir %%BASE%%/usr/include/arpa
 @dir %%BASE%%/usr/include/machine
 @dir %%BASE%%/usr/include/net
